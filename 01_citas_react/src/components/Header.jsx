@@ -1,8 +1,9 @@
 function Header() {
     return(
-        <header>
+        <div>
             <h1>Desde Header</h1>
-        </header>
+            <p>Hola Mundo</p>
+        </div>
     )
 }
 
