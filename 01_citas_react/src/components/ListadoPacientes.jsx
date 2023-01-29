@@ -1,8 +1,6 @@
-import Paciente from "./Paciente"
+import Paciente from "./Paciente";
 
 const ListadoPacientes = ({ pacientes, setPaciente, eliminarPaciente }) => {
-
-
 
   return (
     <div className="md:w-1/2 lg:w-3/5 md:h-screen overflow-y-scroll">
@@ -15,14 +13,14 @@ const ListadoPacientes = ({ pacientes, setPaciente, eliminarPaciente }) => {
             <span className="text-indigo-600 font-bold">Pacientes y Citas</span>
           </p>
     
-          {pacientes.map(( paciente ) => 
+          {pacientes.map(( paciente ) =>
             <Paciente
               key={paciente.id}
               paciente={paciente}
               setPaciente={setPaciente}
               eliminarPaciente={eliminarPaciente}
             />
-          )}  
+          )}
         </>
 
       ) : (
@@ -39,4 +37,4 @@ const ListadoPacientes = ({ pacientes, setPaciente, eliminarPaciente }) => {
   )
 }
 
-export default ListadoPacientes
+export default ListadoPacientes;

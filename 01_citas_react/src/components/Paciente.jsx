@@ -4,11 +4,12 @@ const Paciente = ({ paciente, setPaciente, eliminarPaciente }) => {
     const respuesta = confirm('Desea eliminar este paciente');
     
     if(respuesta) {
-      eliminarPaciente(id)
-    }    
+      eliminarPaciente(id);
+    }
   };
   
-  const { nombre, propietario, email, fecha, sintomas, id } = paciente
+  const { nombre, propietario, email, fecha, sintomas, id } = paciente;
+
   return (
     <div className="mx-5 my-10 bg-white shadow-md px-5 py-10 rounded-xl">
       <p className="font-bold mt-3 text-gray-700 uppercase">
@@ -52,4 +53,4 @@ const Paciente = ({ paciente, setPaciente, eliminarPaciente }) => {
   )
 }
 
-export default Paciente
+export default Paciente;

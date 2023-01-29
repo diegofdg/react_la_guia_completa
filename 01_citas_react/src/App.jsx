@@ -1,21 +1,11 @@
-import { useState, useEffect } from 'react'
-import Header from "./components/Header"
-import Formulario from "./components/Formulario"
-import ListadoPacientes from "./components/ListadoPacientes"
+import { useState, useEffect } from 'react';
+import Header from "./components/Header";
+import Formulario from "./components/Formulario";
+import ListadoPacientes from "./components/ListadoPacientes";
 
 function App() {
-
   const [ pacientes, setPacientes ] = useState(JSON.parse(localStorage.getItem('pacientes')) ?? []);
   const [ paciente, setPaciente ] = useState({});
-
-  //  *** Deprecated *** //
-  //  useEffect( () => {
-  //    const obtenerLS = () => {
-  //      const pacientesLS = JSON.parse(localStorage.getItem('pacientes')) ?? [];
-  //      setPacientes(pacientesLS);
-  //    }
-  //    obtenerLS();
-  //  }, []);
 
   useEffect( () => {
     localStorage.setItem('pacientes', JSON.stringify(pacientes));
@@ -42,9 +32,8 @@ function App() {
           eliminarPaciente={eliminarPaciente}
         />
       </div>
-      
-    </div>    
+    </div>
   )
 }
 
-export default App
+export default App;
