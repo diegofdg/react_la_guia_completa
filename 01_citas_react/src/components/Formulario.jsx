@@ -15,10 +15,10 @@ const Formulario = ({ pacientes, setPacientes }) => {
     e.preventDefault();
 
     // Validación del formulario
-    if( [ nombre,propietario, email, fecha, sintomas ].includes('') ) {
+    /* if( [ nombre,propietario, email, fecha, sintomas ].includes('') ) {
       setError(true);
       return;
-    }
+    } */
     
     setError(false);
 
