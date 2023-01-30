@@ -1,4 +1,3 @@
-import React from 'react';
 import NuevoPresupuesto from './NuevoPresupuesto';
 
 const Header = ({ presupuesto, setPresupuesto }) => {
