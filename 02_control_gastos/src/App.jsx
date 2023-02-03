@@ -52,8 +52,6 @@ function App() {
     if(filtro) {
       const gastosFiltrados = gastos.filter(gasto => gasto.categoria === filtro);
       setGastosFiltrados(gastosFiltrados);
-      console.log(gastosFiltrados)
-      
     }
   },[filtro]);
 
@@ -97,6 +95,7 @@ function App() {
     <div className={modal ? "fijar" : ""}>
       <Header
         gastos={gastos}
+        setGastos={setGastos}
         presupuesto={presupuesto}
         setPresupuesto={setPresupuesto}
         isValidPresupuesto={isValidPresupuesto}
