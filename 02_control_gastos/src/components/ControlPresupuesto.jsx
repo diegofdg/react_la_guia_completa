@@ -14,7 +14,6 @@ const ControlPresupuesto = ({
   const [ gastado, setGastado ] = useState(0);
   const [ porcentaje, setPorcentaje ] = useState(0);
 
-
   useEffect(()=>{
     const totalGastado = gastos.reduce( ( total, gasto ) => gasto.cantidad + total, 0);
     const totalDisponible = presupuesto - totalGastado;

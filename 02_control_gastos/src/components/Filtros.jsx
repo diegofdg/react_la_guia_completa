@@ -1,5 +1,3 @@
-import { useState, useEffect } from 'react';
-
 const Filtros = ({ filtro, setFiltro }) => {
   return (
     <div className="filtros sombra contenedor">
@@ -25,4 +23,4 @@ const Filtros = ({ filtro, setFiltro }) => {
   )
 }
 
-export default Filtros
+export default Filtros;

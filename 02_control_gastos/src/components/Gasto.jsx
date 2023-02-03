@@ -32,7 +32,7 @@ const Gasto = ({ gasto, setGastoEditar, eliminarGasto }) => {
     <LeadingActions>
       <SwipeAction onClick={()=> setGastoEditar(gasto)}>
         Editar
-      </SwipeAction>  
+      </SwipeAction>
     </LeadingActions>
   )
 
@@ -43,7 +43,7 @@ const Gasto = ({ gasto, setGastoEditar, eliminarGasto }) => {
         destructive={true}
       >
         Eliminar
-      </SwipeAction>  
+      </SwipeAction>
     </TrailingActions>
   )
 
