@@ -7,4 +7,5 @@ Este repositorio contiene todos los proyectos incluidos en el curso "React - La 
 ## **Proyectos del curso**
 <ol>
     <li><a href="https://ddg-citas-react.netlify.app/">Seguimiento de Pacientes de Veterinaria</a></li>
+    <li><a href="https://ddg-presupuesto-react.netlify.app/">Planificador de Gastos</a></li>
 </ol>
