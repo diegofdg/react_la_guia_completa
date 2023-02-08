@@ -33,7 +33,8 @@
     },
     "url": {
       "type": "uid",
-      "required": true
+      "required": true,
+      "targetField": "nombre"
     }
   }
 }
