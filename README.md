@@ -10,4 +10,5 @@ Este repositorio contiene todos los proyectos incluidos en el curso "React - La 
     <li><a href="https://ddg-presupuesto-react.netlify.app/">Planificador de Gastos</a></li>
     <li><a href="https://ddg-criptos-react.netlify.app/">Cotizador de Criptomonedas</a></li>
     <li><a href="#">CRM - Clientes</a></li>
+    <li><a href="#">API GuitarLA con Strapi</a></li>
 </ol>
