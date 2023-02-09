@@ -4,7 +4,7 @@ import logo from '../../public/img/logo.svg';
 function Header() {
   return (
     <header className="header">
-      <div className="contenedor">
+      <div className="contenedor barra">
         <Link to="/">
           <img className="logo" src={logo} alt="Imagen Logo" />
         </Link>
