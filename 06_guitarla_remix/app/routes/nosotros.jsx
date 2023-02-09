@@ -1,4 +1,28 @@
 import imagen from '../../public/img/nosotros.jpg';
+import styles from '~/styles/nosotros.css';
+
+export function meta() {
+  return {
+    title: 'GuitarLA - Sobre Nosotros',
+    description: 'Venta de guitarras, blog de música'
+  }
+
+}
+
+export function links() {
+  return [
+    {
+      rel: 'stylesheet',
+      href: styles
+    },
+    {
+      rel: 'preload',
+      href: imagen,
+      as: 'image'
+    }
+
+  ]
+}
 
 function Nosotros() {
   return (
