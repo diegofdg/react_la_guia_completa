@@ -1,6 +1,6 @@
 import { Link } from '@remix-run/react';
 
-function Guitarra({ guitarra }) {
+function Guitarras({ guitarra }) {
   const { descripcion, imagen, precio, url, nombre } = guitarra;
 
   return (
@@ -21,4 +21,4 @@ function Guitarra({ guitarra }) {
   )
 }
 
-export default Guitarra;
+export default Guitarras;

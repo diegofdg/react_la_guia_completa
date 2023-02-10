@@ -1,6 +1,20 @@
 import { useLoaderData } from '@remix-run/react';
 import { getGuitarras } from '~/models/guitarras.server';
-import Guitarra from '~/components/guitarra';
+import Guitarras from '~/components/Guitarras';
+import styles from '~/styles/guitarras.css';
+
+export function meta() {
+  
+}
+
+export function links() {
+  return [
+    {
+      rel: 'stylesheet',
+      href: styles
+    }
+  ]
+}
 
 export async function loader() {
   const guitarras = await getGuitarras();
@@ -16,7 +30,7 @@ function Tienda() {
       {guitarras?.length && (
         <div className='guitarras-grid'>
           {guitarras.map(guitarra => (
-            <Guitarra
+            <Guitarras
               key={guitarra?.id}
               guitarra={guitarra?.attributes}
             />
