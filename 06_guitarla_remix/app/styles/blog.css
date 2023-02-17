@@ -16,10 +16,6 @@
   }
 }
 
-.post {
-
-}
-
 .post .contenido {
   padding: 1.5rem;
 }
@@ -28,6 +24,11 @@
   font-weight: 900;
   font-size: 2.8rem;
   margin-top: 0;
+}
+
+.post .fecha {
+  font-size: 1.6rem;
+  color: var(--primary);
 }
 
 .post .resumen {
