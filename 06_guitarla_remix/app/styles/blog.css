@@ -16,6 +16,11 @@
   }
 }
 
+.post {
+  max-width: 80rem;
+  margin: 0 auto;
+}
+
 .post .contenido {
   padding: 1.5rem;
 }
@@ -38,3 +43,10 @@
   overflow: hidden;
 }
 
+.post .texto {
+  white-space: pre-wrap;
+}
+
+.mt-3 {
+  margin-top: 3rem;
+}
