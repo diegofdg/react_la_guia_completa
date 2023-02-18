@@ -40,7 +40,7 @@ function Guitarra() {
   const handleSubmit = e => {
     e.preventDefault();
     if(cantidad < 1) {
-      alert('Debes seleccionar una guitarra');
+      alert('Debes seleccionar una cantidad');
       return;
     }
 
