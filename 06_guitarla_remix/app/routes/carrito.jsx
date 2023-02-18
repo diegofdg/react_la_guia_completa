@@ -18,7 +18,7 @@ export function links() {
 }
 
 function Carrito() {
-  const { carrito } = useOutletContext();
+  const { carrito, actualizarCantidad } = useOutletContext();
 
   return (
     <main className="contenedor">
@@ -38,6 +38,10 @@ function Carrito() {
                   <select
                     value={producto.cantidad}
                     className="select"
+                    onChange={e => actualizarCantidad({
+                      cantidad: +e.target.value,
+                      id: producto.id
+                    })}
                   >
                     <option value="1">1</option>
                     <option value="2">2</option>
