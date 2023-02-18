@@ -1,6 +1,6 @@
 const Cursos = ({ cursos }) => {
   const { contenido, imagen, titulo } = cursos;
-  console.log(imagen.data.attributes.url);
+  
   return (
     <section className="curso">
       <style jsx="true">
