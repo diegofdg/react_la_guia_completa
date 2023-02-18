@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Meta, Links, Outlet, Scripts, LiveReload, useCatch, Link } from '@remix-run/react';
 import styles from '~/styles/index.css';
 import Header from '~/components/header';
@@ -40,11 +41,16 @@ export function links() {
 }
 
 export default function app() {
+  const [ carrito, setCarrito ] = useState([]);
+
+  const agregarCarrito = guitarra => {
+    setCarrito([...carrito, guitarra]);
+  }
   return (
     <Document>
         <Outlet
           context={{
-            
+            agregarCarrito
           }}
         />
     </Document>
