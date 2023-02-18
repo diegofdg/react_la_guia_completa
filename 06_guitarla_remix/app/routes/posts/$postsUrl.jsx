@@ -41,7 +41,6 @@ export async function loader({ params }) {
 
 function Posts() {
   const post = useLoaderData();
-  console.log(post);
   
   const { titulo, contenido, imagen, publishedAt } = post.data[0].attributes;
   return (
