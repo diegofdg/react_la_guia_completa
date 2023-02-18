@@ -1,10 +1,13 @@
 import { useLoaderData } from 'react-router';
 import { getGuitarras } from '~/models/guitarras.server';
 import { getPosts } from '~/models/posts.server';
+import { getCursos } from '~/models/cursos.server';
 import ListadoGuitarras from '~/components/listado-guitarras';
 import ListadoPosts from '~/components/listado-posts';
+import Cursos from '~/components/cursos';
 import stylesGuitarras from '~/styles/guitarras.css';
 import stylesPosts from '~/styles/blog.css';
+import stylesCursos from '~/styles/cursos.css';
 
 export function meta() {
 
@@ -19,24 +22,31 @@ export function links(){
     {
       rel: 'stylesheet',
       href: stylesPosts
+    },
+    ,
+    {
+      rel: 'stylesheet',
+      href: stylesCursos
     }
   ]
 }
 
 export async function loader(){
-  const [ guitarras, posts ] = await Promise.all([
+  const [ guitarras, posts, cursos ] = await Promise.all([
     getGuitarras(),
-    getPosts()
+    getPosts(),
+    getCursos()
   ]);
   
   return {
     guitarras: guitarras.data,
-    posts: posts.data
+    posts: posts.data,
+    cursos: cursos.data
   }
 }
 
 function Index() {
-  const { guitarras, posts } = useLoaderData();
+  const { guitarras, posts, cursos } = useLoaderData();
   
   return (
     <>
@@ -45,6 +55,10 @@ function Index() {
           guitarras={guitarras}
         />        
       </main>
+
+      <Cursos
+        cursos={cursos.attributes}
+      />
       <section className="contenedor">
         <ListadoPosts
           post={posts}
