@@ -21,6 +21,7 @@
   align-items: center;
   padding: 3rem 0;
   border-bottom: 1px solid #CFCFCF;
+  position: relative;
 }
 
 .producto:last-of-type {
@@ -66,4 +67,15 @@
   border-radius: 1rem;
   position: sticky;
   top: 3rem;
+}
+
+.btn_eliminar {
+  all: unset;
+  position: absolute;
+  top: 3rem;
+  right: 1rem;
+}
+
+.btn_eliminar:hover {
+  cursor: pointer;
 }
