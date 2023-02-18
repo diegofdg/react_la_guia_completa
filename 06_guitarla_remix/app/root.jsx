@@ -42,7 +42,11 @@ export function links() {
 export default function app() {
   return (
     <Document>
-        <Outlet />
+        <Outlet
+          context={{
+            
+          }}
+        />
     </Document>
   )
 }
