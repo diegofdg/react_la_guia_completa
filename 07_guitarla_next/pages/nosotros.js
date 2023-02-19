@@ -4,7 +4,10 @@ import Layout from '@/components/layout'
 export default function Nosotros() {
   return (
     <>
-      <Layout>
+      <Layout
+        title={'Nosotros'}
+        description={'Sobre Nosotros, GuitarLA, tienda de Música'}
+      >
         <div>nosotros</div>
         <Link href="/">Ir a Inicio</Link>
       </Layout>
