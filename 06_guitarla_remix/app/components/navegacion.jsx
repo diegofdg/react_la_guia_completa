@@ -35,7 +35,7 @@ function Navegacion() {
       >
         <img src={imagen} alt="carrito de compras" />
       </Link>
-    </nav>    
+    </nav>
   )
 }
 

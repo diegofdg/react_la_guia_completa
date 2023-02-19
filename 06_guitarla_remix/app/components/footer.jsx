@@ -7,7 +7,7 @@ function Footer() {
         <Navegacion />
         <p className="copyright">Todos los derechos reservados {new Date().getFullYear()}</p>
       </div>
-    </footer>    
+    </footer>
   )
 }
 

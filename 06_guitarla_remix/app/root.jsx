@@ -64,7 +64,7 @@ export default function app() {
     } else {
       // Registro nuevo, agregar al carrito
       setCarrito([...carrito, guitarra]);
-    }    
+    }
   }
 
   const actualizarCantidad = guitarra => {
@@ -102,7 +102,7 @@ function Document({ children }) {
       <head>
         <Meta />
         <Links />
-      </head>      
+      </head>
       <body>
         <Header />
         {children}

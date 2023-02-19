@@ -53,7 +53,7 @@ function Index() {
       <main className="contenedor">
         <ListadoGuitarras
           guitarras={guitarras}
-        />        
+        />
       </main>
 
       <Cursos
@@ -62,7 +62,7 @@ function Index() {
       <section className="contenedor">
         <ListadoPosts
           post={posts}
-        />      
+        />
       </section>
     </>
   )
