@@ -9,7 +9,6 @@ export default function Home() {
         description={'Blog de Música, Venta de Guitarras y más'}
       >
         <h1>Hola Mundo desde Next</h1>
-        <Link href="/nosotros">Nosotros</Link>
       </Layout>
     </>
   )
