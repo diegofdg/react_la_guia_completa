@@ -23,7 +23,7 @@ export default function Header() {
             href="/nosotros"
             className={router.pathname === '/nosotros' ? styles.active : ''}
           >
-            Nosotros          
+            Nosotros
           </Link>
           <Link
             href="/blog"
@@ -35,10 +35,10 @@ export default function Header() {
             href="/tienda"
             className={router.pathname === '/tienda' ? styles.active : ''}
           >
-            Tienda            
+            Tienda
           </Link>
         </nav>
       </div>
-    </header>    
+    </header>
   )
 }
