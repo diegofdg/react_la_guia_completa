@@ -4,6 +4,7 @@
     background-size: cover;
     background-position: center center;
 }
+
 @media (min-width: 768px) {
     .grid {
         display: grid;
