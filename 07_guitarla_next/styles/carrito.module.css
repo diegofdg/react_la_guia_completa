@@ -63,5 +63,7 @@
 .resumen {
   background-color: #F9FAFB;
   padding: 3rem;
-  border-radius: 1rem;  
+  border-radius: 1rem;
+  position: sticky;
+  top: 3rem;
 }
