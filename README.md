@@ -12,4 +12,5 @@ Este repositorio contiene todos los proyectos incluidos en el curso "React - La 
     <li><a>CRM - Clientes</a></li>
     <li><a>API GuitarLA con Strapi</a></li>
     <li><a>GuitarLA con Remix</a></li>
+    <li><a>GuitarLA con Next.js</a></li>
 </ol>
