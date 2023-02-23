@@ -1,0 +1,21 @@
+.contenido {
+  display: grid;
+  align-items: flex-start;
+  gap: 5rem;
+}
+
+@media (min-width: 768px) {
+  .contenido {
+    grid-template-columns: 3fr 2fr;
+  }
+}
+
+.carrito {
+  padding: 3rem 0;
+}
+
+.resumen {
+  background-color: #F9FAFB;
+  padding: 3rem;
+  border-radius: 1rem;  
+}
