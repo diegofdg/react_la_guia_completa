@@ -14,7 +14,16 @@ export default function Producto({ guitarra }) {
       return;
     }
 
-    // Construir un objeto 
+    // Construir un objeto
+    const guitarraSeleccionada = {
+      id: guitarra[0].id,
+      imagen: imagen.data.attributes.url,
+      nombre,
+      precio,
+      cantidad
+    }
+
+    // Pasando la información
 
   }
   return (
