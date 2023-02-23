@@ -5,6 +5,10 @@
   background-position: center center;
 }
 
+.logo {
+  width: 25rem;
+}
+
 .barra {
   display: flex;
   flex-direction: column;
