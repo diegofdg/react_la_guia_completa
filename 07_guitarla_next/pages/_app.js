@@ -4,6 +4,12 @@ import '@/styles/globals.css'
 export default function App({ Component, pageProps }) {
   const carritoLS = typeof window !== 'undefined' ? JSON.parse(localStorage.getItem('carrito')) ?? [] : [];
   const [ carrito, setCarrito ] = useState(carritoLS);
+  const [ paginaLista, setPaginaLista ] = useState(false);
+
+  useEffect(() => {
+    setPaginaLista(true);
+  }, []);
+
   useEffect(() => {
     localStorage.setItem('carrito', JSON.stringify(carrito));
   }, [carrito])
@@ -44,11 +50,12 @@ export default function App({ Component, pageProps }) {
     setCarrito(carritoActualizado)
     window.localStorage.setItem('carrito', JSON.stringify( carrito ));
   }
-  return <Component
-            {...pageProps}
-            carrito={carrito}
-            agregarCarrito={agregarCarrito}
-            eliminarProducto={eliminarProducto}
-            actualizarCantidad={actualizarCantidad}
-         />
+  return paginaLista ?
+   <Component
+    {...pageProps}
+    carrito={carrito}
+    agregarCarrito={agregarCarrito}
+    eliminarProducto={eliminarProducto}
+    actualizarCantidad={actualizarCantidad}
+  /> : null
 }
