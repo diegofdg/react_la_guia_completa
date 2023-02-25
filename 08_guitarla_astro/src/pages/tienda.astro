@@ -1,10 +1,19 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+const url = `${import.meta.env.PUBLIC_API_URL}/guitarras`;
+const respuesta = await fetch(url);
+const { data } = await respuesta.json();
 ---
 
 <Layout title="Tienda virtual" description="Página de tienda de instrumentos musicales, guitarras, cursos, blog y más">
 	<main class="contenedor">
-		<h1 class="heading">Tienda virtual</h1>
+		<h1 class="heading">Nuestra colección</h1>
+		<div class="grid">
+			{data?.map(guitarra => (
+				<h1>{guitarra.attributes.nombre}</h1>
+			))}
+		</div>
 	</main>
 </Layout>
 
