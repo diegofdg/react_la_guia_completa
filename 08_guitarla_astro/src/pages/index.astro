@@ -2,17 +2,22 @@
 import Layout from '../layouts/Layout.astro';
 import Guitarra from '../components/Guitarra.astro';
 import Post from '../components/Post.astro';
+import Curso from '../components/Curso.astro';
+
 const urlGuitarras = `${import.meta.env.PUBLIC_API_URL}/guitarras?populate=imagen`;
 const urlBlog = `${import.meta.env.PUBLIC_API_URL}/posts?populate=imagen`;
+const urlCurso = `${import.meta.env.PUBLIC_API_URL}/curso?populate=imagen`;
 
-const [resGuitarras, resBlog] = await Promise.all([
+const [resGuitarras, resBlog, resCurso] = await Promise.all([
 	fetch(urlGuitarras),
-	fetch(urlBlog)
+	fetch(urlBlog),
+	fetch(urlCurso)
 ])
 
-const [ { data: guitarras }, { data: blog } ] = await Promise.all([
+const [ { data: guitarras }, { data: blog }, { data: curso } ] = await Promise.all([
 	resGuitarras.json(),
-	resBlog.json()
+	resBlog.json(),
+	resCurso.json()
 ])
 ---
 
@@ -30,6 +35,15 @@ const [ { data: guitarras }, { data: blog } ] = await Promise.all([
 				/>
 			))}
 		</div>
+	</main>
+
+	<Curso
+		titulo={curso.attributes.titulo}
+		contenido={curso.attributes.contenido}
+		imagen={curso.attributes.imagen.data.attributes.url}
+	/>
+
+	<section class="contenedor">
 		<h2 class="heading">Blog</h2>
 		<div class="grid">
 			{blog?.map(post => (
@@ -42,7 +56,7 @@ const [ { data: guitarras }, { data: blog } ] = await Promise.all([
 				/>
 			))}
 		</div>
-	</main>
+	</section>
 </Layout>
 
 <style>
