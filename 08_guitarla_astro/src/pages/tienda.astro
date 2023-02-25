@@ -1,7 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Guitarra from '../components/Guitarra.astro';
 
-const url = `${import.meta.env.PUBLIC_API_URL}/guitarras`;
+const url = `${import.meta.env.PUBLIC_API_URL}/guitarras?populate=imagen`;
 const respuesta = await fetch(url);
 const { data } = await respuesta.json();
 ---
@@ -11,7 +12,13 @@ const { data } = await respuesta.json();
 		<h1 class="heading">Nuestra colección</h1>
 		<div class="grid">
 			{data?.map(guitarra => (
-				<h1>{guitarra.attributes.nombre}</h1>
+				<Guitarra
+					nombre={guitarra.attributes.nombre}
+					descripcion={guitarra.attributes.descripcion}
+					url={guitarra.attributes.url}
+					precio={guitarra.attributes.precio}
+					imagen={guitarra.attributes.imagen.data.attributes.formats.medium.url}
+				/>
 			))}
 		</div>
 	</main>
