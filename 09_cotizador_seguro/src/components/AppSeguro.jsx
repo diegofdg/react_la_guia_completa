@@ -5,7 +5,7 @@ import useCotizador from "../hooks/useCotizador";
 
 const AppSeguro = () => {
 
-  const { resultado, cargando } = useCotizador();
+  const { cargando } = useCotizador();
 
   return (
     <>
@@ -23,4 +23,4 @@ const AppSeguro = () => {
   )
 }
 
-export default AppSeguro
+export default AppSeguro;

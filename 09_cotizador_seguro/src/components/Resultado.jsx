@@ -10,7 +10,7 @@ const Resultado = () => {
   const [nombreMarca] = useCallback(
     MARCAS.filter(m => m.id === Number(marca)), [resultado]
   );
-  const [nombrePlan] = useCallback(
+  const [nombrePlan] = useMemo( () => 
     PLANES.filter(p => p.id === Number(plan)), [resultado]
   );
 
