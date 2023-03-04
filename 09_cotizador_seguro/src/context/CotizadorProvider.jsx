@@ -19,13 +19,31 @@ const CotizadorProvider = ({children}) => {
     });
   }
 
+  const cotizarSeguro = () => {
+    // Una base
+
+    // Obtener diferencia de años
+
+    // Hay que restar el 3% por año
+
+    // Americano 15% 
+    // Europeo 30%
+    // Asiatico
+
+    // Basico 20%
+    // Completo 50%
+
+
+  }
+
   return (
     <CotizadorContext.Provider
       value={{
         handleChangeDatos,
         datos,
         error,
-        setError
+        setError,
+        cotizarSeguro
       }}
     >
       {children}
