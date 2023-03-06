@@ -97,3 +97,26 @@ input[type="submit"]:hover {
   align-items: center;
   width: 100%;
 }
+
+.clima > p:first-of-type {
+  font-family: 'Inter', sans-serif;
+  font-size: 4rem;
+}
+
+.clima p {
+  text-align: center;
+  margin: 0;
+
+}
+
+.clima p span {
+  font-size: 1rem;
+  vertical-align: super;
+}
+
+.temp_min_max {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
