@@ -11,7 +11,8 @@ const Formulario = () => {
       setAlerta('Todos los campos son obligatorios');
       return;
     }
-    consultarClima(busqueda);    
+    setAlerta('');
+    consultarClima(busqueda);
   }
 
   return (
