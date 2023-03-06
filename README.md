@@ -15,4 +15,5 @@ Este repositorio contiene todos los proyectos incluidos en el curso "React - La 
     <li><a href="https://guitarla-next-diegofdg.vercel.app/">GuitarLA con Next.js</a></li>
     <li><a href="https://guitarla-astro-five.vercel.app/">GuitarLA con Astro</a></li>
     <li><a href="https://ddg-cotizador-seguro-react.netlify.app/">Cotizador de Seguro de Autos</a></li>
+    <li><a href="https://ddg-clima-react.netlify.app/">Buscador de Clima</a></li>
 </ol>
