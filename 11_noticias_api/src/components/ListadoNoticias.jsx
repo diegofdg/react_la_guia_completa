@@ -6,7 +6,9 @@ import useNoticias from '../hooks/useNoticias';
 import Noticia from './Noticia';
 
 const ListadoNoticias = () => {
-  const { noticias } = useNoticias();
+  const { noticias, totalNoticias } = useNoticias();
+
+  const totalPaginas = Math.ceil(totalNoticias / 20);
 
   return (
     <>
@@ -39,7 +41,7 @@ const ListadoNoticias = () => {
         alignItems='center'
       >
         <Pagination 
-          count={5}
+          count={totalPaginas}
           color="primary"
         />
       </Stack>
@@ -47,4 +49,4 @@ const ListadoNoticias = () => {
   )
 }
 
-export default ListadoNoticias
+export default ListadoNoticias;
