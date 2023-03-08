@@ -6,7 +6,7 @@ import useNoticias from '../hooks/useNoticias';
 import Noticia from './Noticia';
 
 const ListadoNoticias = () => {
-  const { noticias, totalNoticias } = useNoticias();
+  const { noticias, totalNoticias, handleChangePagina, pagina } = useNoticias();
 
   const totalPaginas = Math.ceil(totalNoticias / 20);
 
@@ -40,9 +40,11 @@ const ListadoNoticias = () => {
         justifyContent='center'
         alignItems='center'
       >
-        <Pagination 
+        <Pagination
           count={totalPaginas}
           color="primary"
+          onChange={handleChangePagina}
+          page={pagina}
         />
       </Stack>
     </>
