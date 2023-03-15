@@ -17,4 +17,5 @@ Este repositorio contiene todos los proyectos incluidos en el curso "React - La 
     <li><a href="https://ddg-cotizador-seguro-react.netlify.app/">Cotizador de Seguro de Autos</a></li>
     <li><a href="https://ddg-clima-react.netlify.app/">Buscador de Clima</a></li>
     <li><a href="https://ddg-noticias.netlify.app/">Buscador de Noticias</a></li>
+    <li><a href="https://ddg-buscador-bebidas.netlify.app/">Buscador de Bebidas</a></li>
 </ol>
