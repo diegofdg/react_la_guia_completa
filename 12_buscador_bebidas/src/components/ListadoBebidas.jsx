@@ -2,7 +2,7 @@ import { Row } from "react-bootstrap";
 import useBebidas from "../hooks/useBebidas";
 import Bebida from "./Bebida";
 
-const ListadosBebidas = () => {
+const ListadoBebidas = () => {
   const { bebidas } = useBebidas();
   return (
     <Row className="mt-5">
@@ -16,4 +16,4 @@ const ListadosBebidas = () => {
   )
 }
 
-export default ListadosBebidas;
+export default ListadoBebidas;

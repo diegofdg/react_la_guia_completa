@@ -7,7 +7,7 @@ const Formulario = () => {
   const [ busqueda, setBusqueda ] = useState({
     nombre: '',
     categoria: ''
-  });  
+  });
   const [ alerta, setAlerta ] = useState('')
   const { categorias } = useCategorias();
   const { consultarBebidas } = useBebidas();
@@ -47,26 +47,26 @@ const Formulario = () => {
         </Col>
         <Col md={6}>
           <Form.Group className="mb-3">
-              <Form.Label htmlFor="categoria">Categoría Bebida</Form.Label>
-              <Form.Select
-                id="categoria"
-                name="categoria"
-                value={busqueda.categoria}
-                onChange={e => setBusqueda({
-                  ...busqueda,
-                  [e.target.name] : e.target.value
-                })}
-              >
-                <option>-- Selecciona categoría --</option>
-                {categorias.map(categoria => (
-                  <option
-                    key={categoria.strCategory}
-                    value={categoria.strCategory}
-                  >{categoria.strCategory}
-                  </option>
-                ))}
-              </Form.Select>
-            </Form.Group>
+            <Form.Label htmlFor="categoria">Categoría Bebida</Form.Label>
+            <Form.Select
+              id="categoria"
+              name="categoria"
+              value={busqueda.categoria}
+              onChange={e => setBusqueda({
+                ...busqueda,
+                [e.target.name] : e.target.value
+              })}
+            >
+            <option>-- Selecciona Categoría --</option>
+              {categorias.map(categoria => (
+                <option
+                  key={categoria.strCategory}
+                  value={categoria.strCategory}
+                >{categoria.strCategory}
+                </option>
+            ))}
+            </Form.Select>
+          </Form.Group>
         </Col>
       </Row>
       <Row className="justify-content-end">
@@ -84,4 +84,4 @@ const Formulario = () => {
   )
 }
 
-export default Formulario
+export default Formulario;

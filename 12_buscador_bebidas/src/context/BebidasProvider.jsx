@@ -1,5 +1,5 @@
 import { useState, useEffect, createContext } from "react";
-import axios from 'axios';
+import axios from "axios";
 
 const BebidasContext = createContext();
 
@@ -7,9 +7,11 @@ const BebidasProvider = ({children}) => {
   const [ bebidas, setBebidas ] = useState([]);
   const [ modal, setModal ] = useState(false);
   const [ bebidaId, setBebidaId ] = useState(null);
-  const [ receta, setReceta ] = useState();
+  const [ receta, setReceta ] = useState({});
+  const [ cargando, setCargando ] = useState(false);
 
   useEffect(()=>{
+    setCargando(true)
     const obtenerReceta = async () => {
       if(!bebidaId) {
         return;
@@ -21,6 +23,8 @@ const BebidasProvider = ({children}) => {
         setReceta(data.drinks[0]);
       } catch (error) {
         console.log(error);
+      } finally {
+        setCargando(false);
       }
     }
     obtenerReceta();
@@ -53,7 +57,8 @@ const BebidasProvider = ({children}) => {
         handleModalClick,
         modal,
         handleBebidaIdClick,
-        receta
+        receta,
+        cargando
       }}
     >
       {children}
