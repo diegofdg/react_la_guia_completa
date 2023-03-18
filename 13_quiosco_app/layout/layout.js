@@ -1,6 +1,7 @@
 import Head from "next/head"
 import Modal from "react-modal"
 import Sidebar from "@/components/Sidebar"
+import ModalProducto from "@/components/ModalProducto"
 import useQuiosco from "@/hooks/useQuiosco"
 
 const customStyles = {
@@ -10,9 +11,9 @@ const customStyles = {
     right: "auto",
     bottom: "auto",
     marginRight: "-50%",
-    transition: "translate(-50%, -50%)"
-  }
-}
+    transform: "translate(-50%, -50%)",
+  },
+};
 
 Modal.setAppElement("#__next");
 
@@ -39,7 +40,7 @@ export default function Layout({ children, pagina }) {
           isOpen={modal}
           style={customStyles}
         >
-          <h1>Modal</h1>
+          <ModalProducto />
         </Modal>
       )}
     </>
