@@ -80,9 +80,6 @@ const QuioscoProvider = ({children}) => {
     } catch (error) {
       console.log(error);
     }
-    console.log(pedido);
-    console.log(nombre);
-    console.log(total);
   }
 
   return (
