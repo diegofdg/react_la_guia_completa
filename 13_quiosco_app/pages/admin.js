@@ -5,8 +5,7 @@ import Orden from '@/components/Orden';
 
 export default function Admin() {
   const fetcher = () => axios('api/ordenes').then(datos => datos.data);
-  const { data, error, isLoading } = useSRW('api/ordenes', fetcher);
-  
+  const { data, error, isLoading } = useSRW('api/ordenes', fetcher, {refreshInterval: 100});  
 
   return(
     <AdminLayout
