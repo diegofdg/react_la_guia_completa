@@ -1,6 +1,6 @@
 import useSRW from 'swr'
 import axios from 'axios'
-import AdminLayout from "@/layout/adminLayout"
+import AdminLayout from "@/layout/AdminLayout"
 import Orden from '@/components/Orden';
 
 export default function Admin() {
