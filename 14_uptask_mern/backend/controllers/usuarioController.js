@@ -20,6 +20,11 @@ const registrar = async (req,res) => {
   } 
 }
 
+const autenticar = async (req,res) => {
+
+}
+
 export {
-  registrar
+  registrar,
+  autenticar
 }
