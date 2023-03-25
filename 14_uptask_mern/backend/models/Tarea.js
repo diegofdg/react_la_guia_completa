@@ -36,6 +36,6 @@ const tareaSchema = mongoose.Schema(
   }
 );
 
-const Tarea = mongoose.model("Proyecto", tareaSchema);
+const Tarea = mongoose.model("Tarea", tareaSchema);
 
 export default Tarea;
