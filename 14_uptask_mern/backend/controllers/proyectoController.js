@@ -29,7 +29,13 @@ const obtenerProyecto = async (req,res) => {
       const error = new Error('Acción No Válida')
       return res.status(401).json({ msg: error.message });
     }
-    res.json(proyecto);
+
+    // Obtener las tareas del proyecto
+    const tareas = await Tarea.find().where('proyecto').equals(proyecto._id);
+    res.json({
+      proyecto,
+      tareas
+    });
     
   } catch (error) {
     console.log(error);    
@@ -84,20 +90,6 @@ const agregarColaborador = async (req,res) => {}
 
 const eliminarColaborador = async (req,res) => {}
 
-const obtenerTareas = async (req,res) => {
-  const { id } = req.params;
-  const existeProyecto = await Proyecto.findById(id);
-  if(!existeProyecto) {
-    const error = new Error('No Encontrado')
-    return res.status(404).json({ msg: error.message });
-  }
-
-  // Tienes que ser el creador del proyecto o colaborador
-
-  const tareas = await Tarea.find().where('proyecto').equals(id);
-  res.json(tareas);
-}
-
 export {
   obtenerProyectos,
   nuevoProyecto,
@@ -105,6 +97,5 @@ export {
   editarProyecto,
   eliminarProyecto,
   agregarColaborador,
-  eliminarColaborador,
-  obtenerTareas
+  eliminarColaborador
 }
