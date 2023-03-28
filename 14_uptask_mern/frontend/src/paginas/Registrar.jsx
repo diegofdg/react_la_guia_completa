@@ -7,7 +7,7 @@ const Registrar = () => {
         Crea tu cuenta y administra tus {' '}<span className="text-slate-700">proyectos</span>
       </h1>
       <form className="my-10 bg-white shadow rounded-lg p-10">
-      <div className="my-5">
+        <div className="my-5">
           <label
             htmlFor="nombre"
             className="uppercase text-gray-600 block text-xl font-bold"
