@@ -11,6 +11,7 @@ const Registrar = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
+    
     if([nombre, email, password, repetirPassword].includes('')) {
       setAlerta({
         msg: 'Todos los campos son obligatorios',
@@ -18,6 +19,27 @@ const Registrar = () => {
       });
       return;
     }
+
+    if(password !== repetirPassword) {
+      setAlerta({
+        msg: 'Los passwords no son iguales',
+        error: true
+      });
+      return;
+    }
+
+    if(password.length < 6) {
+      setAlerta({
+        msg: 'El password es muy corto, agrega mínimo 6 caracteres',
+        error: true
+      });
+      return;
+    }
+
+    setAlerta({});
+
+    // Crear el usuario en la API
+    console.log('Creando usuario...');
   }
 
   const { msg } = alerta;
