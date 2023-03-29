@@ -1,5 +1,27 @@
 import nodemailer from "nodemailer";
 
-export const emailRegistro = (datos) => {
-  console.log('Datos', datos);
+export const emailRegistro = async (datos) => {
+  const { email, nombre, token } = datos;
+
+  const transport = nodemailer.createTransport({
+    host: "sandbox.smtp.mailtrap.io",
+    port: 2525,
+    auth: {
+      user: "139fe9789cd770",
+      pass: "9687595e2e6148"
+    }
+  });
+
+  // Información del email
+  const info = await transport.sendMail({
+    from: '"Uptask - Administrador de Proyectos" <cuentas@uptask.com>',
+    to: email,
+    subject: "Uptask - Confirma tu cuenta",
+    text: "Comprueba tu cuenta en Uptask",
+    html: `
+      <p>Hola: ${nombre} Comprueba tu cuenta en Uptask</p>
+      <p>Tu cuenta ya está casi lista, solo debes comprobarla en el siguiente enlace: <a href="${process.env.FRONTEND_URL}/confirmar/${token}">Comprobar cuenta</a></p>
+      <p>Si tu no creaste esta cuenta, puedes ignorar el mensaje</p>
+    `
+  });
 }
