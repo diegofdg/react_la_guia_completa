@@ -4,14 +4,20 @@ import useProyectos from "../hooks/useProyectos";
 
 const Proyecto = () => {
   const params = useParams();
-  const { obtenerProyecto } = useProyectos();
+  const { obtenerProyecto, proyecto, cargando } = useProyectos();
   
   useEffect(()=>{
     obtenerProyecto(params.id);
   },[]);
 
+  const { nombre } = proyecto;
+
   return (
-    <div>Proyecto</div>
+    cargando ? '' : (
+      <div>
+        <h1 className="font-black text-4xl">{nombre}</h1>
+      </div>
+    )
   )
 }
 
