@@ -135,6 +135,11 @@ const ProyectosProvider = ({ children }) => {
     }
   }
 
+  const eliminarProyecto = async id => {
+    console.log(id)
+
+  }
+
   return (
     <ProyectosContext.Provider
       value={{
@@ -144,7 +149,8 @@ const ProyectosProvider = ({ children }) => {
         submitProyecto,
         obtenerProyecto,
         proyecto,
-        cargando
+        cargando,
+        eliminarProyecto
       }}
     >
       {children}
