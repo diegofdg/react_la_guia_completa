@@ -16,9 +16,12 @@ const agregarTarea = async (req,res) => {
 
   try {
     const tareaAlmacenada = await Tarea.create(req.body);
-    return res.json(tareaAlmacenada);    
+    // Almacenar el ID en el proyecto
+    existeProyecto.tareas.push(tareaAlmacenada._id);
+    await existeProyecto.save();
+    return res.json(tareaAlmacenada);
   } catch (error) {
-    console.log(error);    
+    console.log(error);
   }
 }
 
@@ -56,7 +59,7 @@ const actualizarTarea = async (req,res) => {
     const tareaAlmacenada = await tarea.save();
     res.json(tareaAlmacenada);
   } catch (error) {
-    console.log(error);    
+    console.log(error);
   }
 }
 
@@ -74,9 +77,9 @@ const eliminarTarea = async (req,res) => {
       return res.status(403).json({ msg: error.message });
     }
     await tarea.deleteOne();
-    res.json({ msg: 'Tarea Eliminada'});    
+    res.json({ msg: 'Tarea Eliminada'});
   } catch (error) {
-    console.log(error);    
+    console.log(error);
   }
 }
 
