@@ -158,7 +158,7 @@ const ProyectosProvider = ({ children }) => {
       setAlerta({
         msg: data.msg,
         error: false
-      });      
+      });
       setTimeout( () => {
         setAlerta({});
         navigate('/proyectos');
@@ -178,7 +178,7 @@ const ProyectosProvider = ({ children }) => {
       await editarTarea(tarea);
     } else {
       await crearTarea(tarea);
-    }    
+    }
   }
 
   const crearTarea = async tarea => {
@@ -202,7 +202,7 @@ const ProyectosProvider = ({ children }) => {
       setAlerta({});
       setModalFormularioTarea(false);
     } catch (error) {
-      console.log(error);      
+      console.log(error);
     }
   }
 
@@ -220,12 +220,13 @@ const ProyectosProvider = ({ children }) => {
       }
       const { data } = await clienteAxios.put(`/tareas/${tarea.id}`, tarea, config);
 
-      // Actualizar el DOM
-      
+      const proyectoActualizado = { ...proyecto }
+      proyectoActualizado.tareas = [ ...proyectoActualizado.tareas.map(tareaState => tareaState._id === data._id ? data : tareaState)]
+      setProyecto(proyectoActualizado);
       setAlerta({});
       setModalFormularioTarea(false);
     } catch (error) {
-      console.log(error);      
+      console.log(error);
     }
   }
 
