@@ -11,8 +11,12 @@ const ModalFormularioTarea = () => {
   const [ descripcion, setDescripcion ] = useState('');
   const [ prioridad, setPrioridad ] = useState('');
   const [ fechaEntrega, setFechaEntrega ] = useState('');
-  const { modalFormularioTarea, handleModalTarea, mostrarAlerta, alerta, submitTarea } = useProyectos();
+  const { modalFormularioTarea, handleModalTarea, mostrarAlerta, alerta, submitTarea, tarea } = useProyectos();
   const params = useParams();
+
+  useEffect(()=>{
+    console.log(tarea);
+  },[tarea]);
 
   const handleSubmit = async e => {
     e.preventDefault();
