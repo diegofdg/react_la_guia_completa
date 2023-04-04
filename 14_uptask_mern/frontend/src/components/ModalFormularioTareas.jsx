@@ -40,7 +40,8 @@ const ModalFormularioTarea = () => {
       });
       return;
     }
-    await submitTarea({nombre, descripcion, prioridad, fechaEntrega, proyecto: params.id});
+    await submitTarea({id, nombre, descripcion, prioridad, fechaEntrega, proyecto: params.id});
+    setId('');
     setNombre('');
     setDescripcion('');
     setFechaEntrega('');
