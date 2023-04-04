@@ -7,6 +7,7 @@ import Alerta from "./Alerta";
 const PRIORIDAD = ['Baja', 'Media', 'Alta'];
 
 const ModalFormularioTarea = () => {
+  const [ id, setId ] = useState('');
   const [ nombre, setNombre ] = useState('');
   const [ descripcion, setDescripcion ] = useState('');
   const [ prioridad, setPrioridad ] = useState('');
@@ -15,7 +16,19 @@ const ModalFormularioTarea = () => {
   const params = useParams();
 
   useEffect(()=>{
-    console.log(tarea);
+    if(tarea?._id) {
+      setId(tarea._id);
+      setNombre(tarea.nombre);
+      setDescripcion(tarea.descripcion);
+      setFechaEntrega(tarea.fechaEntrega.split('T')[0]);
+      setPrioridad(tarea.prioridad);
+      return;
+    }
+    setId('');
+    setNombre('');
+    setDescripcion('');
+    setFechaEntrega('');
+    setPrioridad('');
   },[tarea]);
 
   const handleSubmit = async e => {
@@ -84,7 +97,7 @@ const ModalFormularioTarea = () => {
               <div className="sm:flex sm:items-start">
                 <div className="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left w-full">
                   <Dialog.Title as="h3" className="text-lg leading-6 font-bold text-gray-900">
-                    Crear Tarea
+                    {id ? 'Editar Tarea' : 'Crear Tarea'}
                   </Dialog.Title>
                   {msg && <Alerta alerta={alerta} />}
                   <form
@@ -165,7 +178,7 @@ const ModalFormularioTarea = () => {
                     <input
                       type="submit"
                       className="bg-sky-600 hover:bg-sky-700 w-full p-3 text-white uppercase font-bold cursor-pointer transition-colors rounded text-sm"
-                      value="Crear Tarea"
+                      value={id ? 'Guardar Cambios' : 'Crear Tarea'}
                     />
                   </form>
                 </div>
