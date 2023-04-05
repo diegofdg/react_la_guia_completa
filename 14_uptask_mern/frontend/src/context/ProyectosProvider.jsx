@@ -270,7 +270,10 @@ const ProyectosProvider = ({ children }) => {
     } catch (error) {
       console.log(error);
     }
-    
+  }
+
+  const submitColaborador = async email => {
+    console.log(email);
   }
 
   return (
@@ -291,7 +294,8 @@ const ProyectosProvider = ({ children }) => {
         tarea,
         modalEliminarTarea,
         handleModalEliminarTarea,
-        eliminarTarea
+        eliminarTarea,
+        submitColaborador
       }}
     >
       {children}
