@@ -96,7 +96,7 @@ const FormularioProyecto = () => {
           className="border w-full p-2 mt-2 placeholder-gray-400 rounded-md"
           value={fechaEntrega}
           onChange={e => setFechaEntrega(e.target.value)}
-        />        
+        />
       </div>
       <div className="mb-5">
         <label

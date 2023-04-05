@@ -64,7 +64,7 @@ const ModalEliminarTarea = () => {
                     <p className="text-sm text-gray-500">
                       Una tarea eliminada no se podrá recuperar
                     </p>
-                  </div>                  
+                  </div>
                 </div>
               </div>
                 <div className="mt-5 sm:mt-4 sm:flex sm:flex-row-reverse">
