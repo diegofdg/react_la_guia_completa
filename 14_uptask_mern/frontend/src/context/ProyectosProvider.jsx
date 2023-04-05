@@ -12,6 +12,7 @@ const ProyectosProvider = ({ children }) => {
   const [ modalFormularioTarea, setModalFormularioTarea ] = useState(false);
   const [ tarea, setTarea ] = useState({});
   const [ modalEliminarTarea, setModalEliminarTarea ] = useState(false);
+  const [ colaborador, setColaborador ] = useState({});
   const navigate = useNavigate();
 
   useEffect(()=>{
@@ -273,7 +274,30 @@ const ProyectosProvider = ({ children }) => {
   }
 
   const submitColaborador = async email => {
-    console.log(email);
+    setCargando(true);
+    try {
+      const token = localStorage.getItem('token');
+      if(!token) {
+        return;
+      }
+      const config = {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`
+        }
+      }
+      const { data } = await clienteAxios.post('/proyectos/colaboradores', {email}, config);
+      setColaborador(data);
+      setAlerta({});
+      
+    } catch (error) {
+      setAlerta({
+        msg: error.response.data.msg,
+        error: true
+        });      
+    } finally {
+      setCargando(false);
+    }
   }
 
   return (
