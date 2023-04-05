@@ -3,6 +3,7 @@ import { useParams, Link } from "react-router-dom";
 import useProyectos from "../hooks/useProyectos";
 import ModalFormularioTarea from "../components/ModalFormularioTarea";
 import ModalEliminarTarea from "../components/ModalEliminarTarea";
+import ModalEliminarColaborador from "../components/ModalEliminarColaborador";
 import Tarea from "../components/Tarea";
 import Alerta from "../components/Alerta";
 import Colaborador from "../components/Colaborador";
@@ -90,6 +91,7 @@ const Proyecto = () => {
       </div>
       <ModalFormularioTarea />
       <ModalEliminarTarea />
+      <ModalEliminarColaborador />
     </>
   )
 }
