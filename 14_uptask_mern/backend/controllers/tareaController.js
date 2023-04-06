@@ -84,7 +84,24 @@ const eliminarTarea = async (req,res) => {
 }
 
 const cambiarEstado = async (req,res) => {
-  console.log(req.params.id);
+  const { id } = req.params;
+  try {
+    const tarea = await Tarea.findById(id).populate('proyecto');
+    if(!tarea) {
+      const error = new Error('Tarea No Encontrada');
+      return res.status(404).json({ msg: error.message });
+    }
+    if(tarea.proyecto.creador.toString() !== req.usuario._id.toString() && !tarea.proyecto.colaboradores.some( colaborador => colaborador._id.toString() === req.usuario._id.toString())) {
+      const error = new Error('Acción No Válida');
+      return res.status(403).json({ msg: error.message });
+    }
+
+    tarea.estado = !tarea.estado;
+    const respuesta = await tarea.save();
+    return res.json(respuesta);
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 export {
