@@ -25,7 +25,7 @@ const nuevoProyecto = async (req,res) => {
 const obtenerProyecto = async (req,res) => {
   const { id } = req.params;
   try {
-    const proyecto = await Proyecto.findById(id).populate('tareas').populate('colaboradores', "nombre email");
+    const proyecto = await Proyecto.findById(id).populate({ path: 'tareas', populate: {path: 'completado', select: 'nombre'}}).populate('colaboradores', "nombre email");
     if(!proyecto) {
       const error = new Error('No Encontrado')
       return res.status(404).json({ msg: error.message });
