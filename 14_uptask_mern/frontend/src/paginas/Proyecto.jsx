@@ -13,7 +13,7 @@ let socket;
 
 const Proyecto = () => {
   const params = useParams();
-  const { obtenerProyecto, proyecto, cargando, handleModalTarea, alerta, submitTareasProyectos } = useProyectos();
+  const { obtenerProyecto, proyecto, cargando, handleModalTarea, alerta, submitTareasProyectos, eliminarTareaProyecto } = useProyectos();
   const admin = useAdmin();
   
   useEffect(()=>{
@@ -31,6 +31,11 @@ const Proyecto = () => {
         submitTareasProyectos(tareaNueva);
       }
     });
+    socket.on('tarea eliminada', tareaEliminada => {
+      if(tareaEliminada.proyecto === proyecto._id) {
+        eliminarTareaProyecto(tareaEliminada);
+      }
+    })
   });
 
   const { nombre } = proyecto;

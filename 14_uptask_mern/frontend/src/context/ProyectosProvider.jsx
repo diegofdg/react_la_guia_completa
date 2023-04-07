@@ -274,10 +274,10 @@ const ProyectosProvider = ({ children }) => {
         error: false
       });
 
-      const proyectoActualizado = { ...proyecto }
-      proyectoActualizado.tareas = proyectoActualizado.tareas.filter(tareaState => tareaState._id !== tarea._id);
-      setProyecto(proyectoActualizado);
       setModalEliminarTarea(false);
+      
+      // Socket.io
+      socket.emit('eliminar tarea', tarea);
       setTarea({});
       setTimeout(() => {
         setAlerta({});
@@ -422,6 +422,12 @@ const ProyectosProvider = ({ children }) => {
     setProyecto(proyectoActualizado);
   }
 
+  const eliminarTareaProyecto = (tarea) => {
+    const proyectoActualizado = { ...proyecto }
+    proyectoActualizado.tareas = proyectoActualizado.tareas.filter(tareaState => tareaState._id !== tarea._id);
+    setProyecto(proyectoActualizado);
+  }
+
   return (
     <ProyectosContext.Provider
       value={{
@@ -450,7 +456,8 @@ const ProyectosProvider = ({ children }) => {
         completarTarea,
         buscador,
         handleBuscador,
-        submitTareasProyectos
+        submitTareasProyectos,
+        eliminarTareaProyecto
       }}
     >
       {children}
