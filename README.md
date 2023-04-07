@@ -19,4 +19,5 @@ Este repositorio contiene todos los proyectos incluidos en el curso "React - La 
     <li><a href="https://ddg-noticias.netlify.app/">Buscador de Noticias</a></li>
     <li><a href="https://ddg-buscador-bebidas.netlify.app/">Buscador de Bebidas</a></li>
     <li><a href="https://ddg-quioscoapp.up.railway.app/">Quiosco de Comidas y Bebidas</a></li>
+    <li><a>UpTask</a></li>
 </ol>
