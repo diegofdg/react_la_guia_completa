@@ -13,7 +13,7 @@ let socket;
 
 const Proyecto = () => {
   const params = useParams();
-  const { obtenerProyecto, proyecto, cargando, handleModalTarea, alerta } = useProyectos();
+  const { obtenerProyecto, proyecto, cargando, handleModalTarea, alerta, submitTareasProyectos } = useProyectos();
   const admin = useAdmin();
   
   useEffect(()=>{
@@ -26,9 +26,11 @@ const Proyecto = () => {
   },[]);
 
   useEffect(()=>{
-    socket.on('respuesta', (persona) => {
-      console.log(persona);
-    }) 
+    socket.on('tarea agregada', tareaNueva => {
+      if(tareaNueva.proyecto === proyecto._id) {
+        submitTareasProyectos(tareaNueva);
+      }
+    });
   });
 
   const { nombre } = proyecto;

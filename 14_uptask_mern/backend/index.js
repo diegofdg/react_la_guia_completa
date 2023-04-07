@@ -57,4 +57,9 @@ io.on('connection', (socket) => {
   socket.on('abrir proyecto', (proyecto) => {
     socket.join(proyecto);
   });
+
+  socket.on('nueva tarea', tarea => {
+    const proyecto = tarea.proyecto;
+    socket.to(proyecto).emit('tarea agregada', tarea);
+  });
 });
