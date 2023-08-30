@@ -24,6 +24,21 @@
       "nombre": "Jugo de Fresa",
       "precio": "200",
       "id": 5
+    },
+    {
+      "nombre": "Hola",
+      "precio": 100,
+      "id": 6
+    },
+    {
+      "nombre": "Hola",
+      "precio": 120,
+      "id": 7
+    },
+    {
+      "nombre": "asdf",
+      "precio": 123,
+      "id": 8
     }
   ]
 }
