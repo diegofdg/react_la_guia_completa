@@ -31,11 +31,20 @@ export default function(state = initialState, action) {
       }
 
     case AGREGAR_PRODUCTO_ERROR:
+    case DESCARGA_PRODUCTOS_ERROR:
       return {
         ...state,
         loading: false,
         error: action.payload
-    }
+      }
+
+    case DESCARGA_PRODUCTOS_EXITO:
+      return {
+        ...state,
+        loading: false,
+        error: null,
+        productos: action.payload
+      }
 
     default:
       return state;
