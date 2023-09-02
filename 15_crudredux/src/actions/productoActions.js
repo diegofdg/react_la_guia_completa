@@ -95,14 +95,21 @@ const descargaProductosError = () => ({
 // Selecciona y elimina el producto
 export function borrarProductoAction(id) {
   return async (dispatch) => {
-      dispatch(obtenerProductoEliminar(id) ); 
-      
-      try {
-        await clienteAxios.delete(`/productos/${id}`);
-        dispatch( eliminarProductoExito() );
+    dispatch(obtenerProductoEliminar(id) ); 
+    
+    try {
+      await clienteAxios.delete(`/productos/${id}`);
+      dispatch( eliminarProductoExito() );
+
+      // Si se elimina, mostrar alerta
+      Swal.fire(
+        'Eliminado',
+        'El producto se eliminó correctamente',
+        'success'
+      )
     } catch (error) {
-        console.log(error);
-        dispatch( eliminarProductoError() );
+      console.log(error);
+      dispatch( eliminarProductoError() );
     }
   }
 }
