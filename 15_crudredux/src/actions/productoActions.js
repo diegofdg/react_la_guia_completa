@@ -5,6 +5,9 @@ import {
   COMENZAR_DESCARGA_PRODUCTOS,
   DESCARGA_PRODUCTOS_EXITO,
   DESCARGA_PRODUCTOS_ERROR,
+  OBTENER_PRODUCTO_ELIMINAR,
+  PRODUCTO_ELIMINADO_EXITO,
+  PRODUCTO_ELIMINADO_ERROR,
 } from '../types';
 
 import clienteAxios from '../config/axios';
@@ -87,4 +90,16 @@ const descargaProductosExitosa = productos => ({
 const descargaProductosError = () => ({
   type: DESCARGA_PRODUCTOS_ERROR, 
   payload: true
+});
+
+// Selecciona y elimina el producto
+export function borrarProductoAction(id) {
+  return async (dispatch) => {
+      dispatch(obtenerProductoEliminar(id) );     
+  }
+}
+
+const obtenerProductoEliminar = id => ({
+  type: OBTENER_PRODUCTO_ELIMINAR,
+  payload: id
 });
