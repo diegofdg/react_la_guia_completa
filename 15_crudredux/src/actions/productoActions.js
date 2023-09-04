@@ -169,4 +169,4 @@ const editarProductoExito = producto => ({
 const editarProductoError = () => ({
   type: PRODUCTO_EDITADO_ERROR,
   payload: true
-})
+});
