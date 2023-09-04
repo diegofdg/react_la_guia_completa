@@ -17,7 +17,7 @@ const NuevoProductos = ({history}) => {
     // Acceder al state del store
     const cargando = useSelector( state => state.productos.loading );
     const error = useSelector(state => state.productos.error);
-    const alerta = useSelector(state => state.alerta.alerta);
+        
 
 
     // mandar llamar el action de productoAction
