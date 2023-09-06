@@ -4,6 +4,7 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import Buscar from '../ui/Buscar';
 import Navegacion from './Navegacion';
+import Boton from '../ui/Boton';
 
 const ContenedorHeader = styled.div`
   max-width: 1200px;
@@ -25,31 +26,65 @@ const Logo = styled.a`
 `;
 
 const Header = () => {
+  const  usuario = true;
 
-    return ( 
-        <header
+  return ( 
+    <header
+      css={css`
+        border-bottom: 2px solid var(--gris3);
+        padding: 1rem 0;
+      `}
+    >
+      <ContenedorHeader>
+        <div>
+          <Link href="/">
+            <Logo>P</Logo>
+          </Link>
+          <Buscar />
+          <Navegacion />
+        </div>
+        <div
           css={css`
-            border-bottom: 2px solid var(--gris3);
-            padding: 1rem 0;
+            display: flex;
+            align-items: center;
           `}
         >
-          <ContenedorHeader>
-            <div>
-              <Link href="/">
-                <Logo>P</Logo>
+          {usuario ? (
+            <>
+              <p
+                css={css`
+                  margin-right: 2rem;
+                `}
+              >
+                Hola: Juan
+              </p>
+              <Boton
+                bgColor="true"
+                onClick={() => firebase.cerrarSesion() }
+              >
+                Cerrar Sesión
+              </Boton>
+            </>
+          ) : (
+            <>
+              <Link href="/login">
+                <Boton
+                  bgColor="true"
+                >
+                  Login
+                </Boton>
               </Link>
-              <Buscar />
-              <Navegacion />
-            </div>
-            <div>
-              <p>Hola: Juan</p>
-              <button type='button'>Cerrar Sesión</button>
-              <Link href="/">Login</Link>
-              <Link href="/">Crear Cuenta</Link>
-            </div>            
-          </ContenedorHeader>
-        </header>
-     );
+              <Link href="/crear-cuenta">
+                <Boton>
+                  Crear Cuenta
+                </Boton>
+              </Link>
+            </>
+          )}
+        </div>            
+      </ContenedorHeader>
+    </header>
+  );
 }
  
 export default Header;
