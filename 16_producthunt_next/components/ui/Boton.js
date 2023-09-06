@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-const Boton = styled.a`
+const Boton = styled.p`
   display: block;
   font-weight: 700;
   text-transform: uppercase;
