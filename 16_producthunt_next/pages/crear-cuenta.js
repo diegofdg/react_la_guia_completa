@@ -1,10 +1,10 @@
 import Layout from '../components/layout/Layout';
 
-export default function Home() {
+export default function CrearCuenta() {
   return (
     <div>
       <Layout>
-        <h1>Nosotros</h1>
+        <h1>Crear Cuenta</h1>
       </Layout>
     </div>
   )

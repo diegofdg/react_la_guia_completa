@@ -26,7 +26,7 @@ const Logo = styled.a`
 `;
 
 const Header = () => {
-  const  usuario = true;
+  const  usuario = false;
 
   return ( 
     <header
