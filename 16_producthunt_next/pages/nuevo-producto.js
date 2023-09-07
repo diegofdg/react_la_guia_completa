@@ -9,7 +9,6 @@ import { FirebaseContext } from '../firebase';
 // validaciones
 import useValidacion from '../hooks/useValidacion';
 import validarCrearProducto from '../validacion/validarCrearProducto';
-import CrearCuenta from './crear-cuenta';
 
 const STATE_INICIAL = {
   nombre: '',
@@ -22,14 +21,14 @@ const STATE_INICIAL = {
 const NuevoProducto = () => {
 
   // state de las imagenes
-  const [nombreimagen, guardarNombre] = useState('');
-  const [subiendo, guardarSubiendo] = useState(false);
+  const [ nombreimagen, guardarNombre] = useState('');
+  const [ subiendo, guardarSubiendo] = useState(false);
   const [ progreso, guardarProgreso ] = useState(0);
-  const [urlimagen, guardarUrlImagen] = useState('');
+  const [ urlimagen, guardarUrlImagen] = useState('');
 
   const [ error, guardarError] = useState(false);
 
-  const { valores, errores, handleSubmit, handleChange, handleBlur } = useValidacion(STATE_INICIAL, validarCrearProducto, CrearCuenta);
+  const { valores, errores, handleSubmit, handleChange, handleBlur } = useValidacion(STATE_INICIAL, validarCrearProducto, crearProducto);
 
   const { nombre, empresa, imagen, url, descripcion } = valores;
 
@@ -55,12 +54,7 @@ const NuevoProducto = () => {
       descripcion,
       votos: 0,
       comentarios: [],
-      creado: Date.now(), 
-      creador: {
-        id: usuario.uid,
-        nombre: usuario.displayName
-      }, 
-      haVotado: []
+      creado: Date.now(),
     }
 
     // insertarlo en la base de datos
@@ -69,35 +63,7 @@ const NuevoProducto = () => {
     return router.push('/');
 
   }
-
-
-  const handleUploadStart = () => {
-    guardarProgreso(0);
-    guardarSubiendo(true);
-  }
-
-  const handleProgress = progreso => guardarProgreso({ progreso });
-
-  const handleUploadError = error => {
-    guardarSubiendo(error);
-    console.error(error);
-  };
-
-  const handleUploadSuccess = nombre => {
-    guardarProgreso(100);
-    guardarSubiendo(false);
-    guardarNombre(nombre)
-    firebase
-      .storage
-      .ref("productos")
-      .child(nombre)
-      .getDownloadURL()
-      .then(url => {
-        console.log(url);
-        guardarUrlImagen(url);
-      });
-  };
-
+  
   return (
     <div>
       <Layout>
