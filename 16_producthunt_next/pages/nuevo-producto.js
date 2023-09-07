@@ -8,13 +8,13 @@ import { FirebaseContext } from '../firebase';
 
 // validaciones
 import useValidacion from '../hooks/useValidacion';
-import validarCrearCuenta from '../validacion/validarCrearCuenta';
+import validarCrearProducto from '../validacion/validarCrearProducto';
 import CrearCuenta from './crear-cuenta';
 
 const STATE_INICIAL = {
   nombre: '',
   empresa: '',
-  imagen: '',
+  //imagen: '',
   url: '',
   descripcion: ''
 }
@@ -29,7 +29,7 @@ const NuevoProducto = () => {
 
   const [ error, guardarError] = useState(false);
 
-  const { valores, errores, handleSubmit, handleChange, handleBlur } = useValidacion(STATE_INICIAL, validarCrearCuenta, CrearCuenta);
+  const { valores, errores, handleSubmit, handleChange, handleBlur } = useValidacion(STATE_INICIAL, validarCrearProducto, CrearCuenta);
 
   const { nombre, empresa, imagen, url, descripcion } = valores;
 
@@ -147,7 +147,7 @@ const NuevoProducto = () => {
 
                 {errores.empresa && <Error>{errores.empresa}</Error> }
     
-                <Campo>
+                {/* <Campo>
                   <label htmlFor="imagen">Imagen</label>
                   <input 
                     accept="image/*"
@@ -159,7 +159,7 @@ const NuevoProducto = () => {
                     onUploadSuccess={handleUploadSuccess}
                     onProgress={handleProgress}
                   />
-                </Campo>
+                </Campo> */}
 
                 <Campo>
                   <label htmlFor="url">URL</label>
