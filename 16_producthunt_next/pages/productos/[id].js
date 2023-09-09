@@ -1,20 +1,45 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useContext, useState } from 'react';
 import { useRouter } from 'next/router';
+import { FirebaseContext } from '../../firebase';
+import Layout from '../../components/layout/Layout';
+import Error404 from '../../components/layout/404';
 
 const Producto = () => {
+
+  // state del componente
+  const [producto, guardarProducto] = useState({});
+  const [error, guardarError] = useState(false);
 
   // Routing para obtener el id actual
   const router = useRouter();
   const { query: { id } } = router;
 
+  // context de firebase
+  const { firebase } = useContext(FirebaseContext);  
+
   useEffect(() => {
     if(id) {
-      console.log(id);
+      const obtenerProducto = async () => {
+        const productoQuery = await firebase.db.collection('productos').doc(id);
+        const producto = await productoQuery.get();        
+        if(producto.exists) {
+          guardarProducto(producto.data());
+       } else {
+           guardarError(true);
+       }
+      }
+      obtenerProducto();
     }
-}, [id]);
+  }, [id]);
 
-  return ( 
-   <h1>Desde {id}.js</h1>
+  return (
+    <Layout>
+      <>
+        { error && <Error404 /> }
+      </>
+    </Layout>
+    
+   
   );
 }
  
