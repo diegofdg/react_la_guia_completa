@@ -67,6 +67,7 @@ const Producto = () => {
             <ContenedorProducto>
               <div>
               <p>Publicado hace: { formatDistanceToNow( new Date(creado), {locale: es} )} </p>
+              <p>Por: {creador.nombre} de {empresa} </p>             
                 <img src={urlimagen} />
                 <p>{descripcion}</p>                
                 <h2>Agrega tu comentario</h2>
@@ -104,7 +105,7 @@ const Producto = () => {
                 href={url}
               >
                 Visitar URL
-              </Boton>             
+              </Boton>
 
               <div
                 css={css`
