@@ -69,20 +69,26 @@ const Producto = () => {
               <p>Publicado hace: { formatDistanceToNow( new Date(creado), {locale: es} )} </p>
               <p>Por: {creador.nombre} de {empresa} </p>             
                 <img src={urlimagen} />
-                <p>{descripcion}</p>                
-                <h2>Agrega tu comentario</h2>
-                  <form>
-                    <Campo>
-                      <input
-                        type="text"
-                        name="mensaje"
+                <p>{descripcion}</p>
+                { usuario && (
+                  <>
+                    <h2>Agrega tu comentario</h2>
+                    <form>
+                      <Campo>
+                        <input
+                          type="text"
+                          name="mensaje"
+                        />
+                      </Campo>
+                      <InputSubmit
+                        type="submit"
+                        value="Agregar Comentario"
                       />
-                    </Campo>
-                    <InputSubmit
-                      type="submit"
-                      value="Agregar Comentario"
-                    />
-                  </form>
+                    </form>
+                  </>
+                )}
+
+                
                 <h2
                   css={css`
                     margin: 2rem 0;
@@ -119,8 +125,9 @@ const Producto = () => {
                 >
                   {votos} Votos
                 </p>                
-                
-                <Boton>Votar</Boton>
+                {usuario && (
+                  <Boton>Votar</Boton>
+                )}
                 
                 </div>
               </aside>

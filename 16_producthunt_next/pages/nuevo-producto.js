@@ -7,6 +7,8 @@ import { Formulario, Campo, InputSubmit, Error } from '../components/ui/Formular
 
 import { FirebaseContext } from '../firebase';
 
+import Error404 from '../components/layout/404';
+
 // validaciones
 import useValidacion from '../hooks/useValidacion';
 import validarCrearProducto from '../validacion/validarCrearProducto';
@@ -99,7 +101,7 @@ const handleUploadSuccess = nombre => {
   return (
     <div>
       <Layout>
-        { !usuario ? <Error /> : (
+        { !usuario ? <Error404 /> : (
           <>
             <h1
               css={css`
