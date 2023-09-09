@@ -8,6 +8,7 @@ import Error404 from '../../components/layout/404';
 import { css } from '@emotion/core';
 import styled from '@emotion/styled';
 import { Campo, InputSubmit } from '../../components/ui/Formulario';
+import Boton from '../../components/ui/Boton';
 
 const Producto = () => {
 
@@ -97,7 +98,30 @@ const Producto = () => {
               </div>
 
               <aside>
-                2
+              <Boton
+                target="_blank"
+                bgColor="true"
+                href={url}
+              >
+                Visitar URL
+              </Boton>             
+
+              <div
+                css={css`
+                  margin-top: 5rem;
+                `}
+              >
+                <p
+                  css={css`
+                    text-align: center;
+                  `}
+                >
+                  {votos} Votos
+                </p>                
+                
+                <Boton>Votar</Boton>
+                
+                </div>
               </aside>
             </ContenedorProducto>            
           </div>
