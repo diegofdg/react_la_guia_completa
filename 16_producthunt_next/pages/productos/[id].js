@@ -44,7 +44,7 @@ const Producto = () => {
       }
       obtenerProducto();
     }
-  }, [id]);
+  }, [id, producto]);
 
   if(Object.keys(producto).length === 0 && !error)  return 'Cargando...';
 
@@ -59,9 +59,16 @@ const Producto = () => {
     // obtener y sumar un nuevo voto
     const nuevoTotal = votos + 1;
 
+    // Verificar si el usuario actual ha votado
+    if(haVotado.includes(usuario.uid) ) return;
+
+    // guardar el ID del usuario que ha votado
+    const nuevoHaVotado = [...haVotado, usuario.uid];
+
     //  Actualizar en la BD
     firebase.db.collection('productos').doc(id).update({ 
-      votos: nuevoTotal
+      votos: nuevoTotal,
+      haVotado: nuevoHaVotado
     });
 
     // Actualizar el state
