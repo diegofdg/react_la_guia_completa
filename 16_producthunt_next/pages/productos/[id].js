@@ -34,6 +34,7 @@ const Producto = () => {
   const [producto, guardarProducto] = useState({});
   const [error, guardarError] = useState(false);
   const [comentario, guardarComentario ] = useState({});
+  const [consultarDB, guardarConsultarDB ] = useState(true);
 
   // Routing para obtener el id actual
   const router = useRouter();
@@ -43,14 +44,16 @@ const Producto = () => {
   const { firebase, usuario } = useContext(FirebaseContext);  
 
   useEffect(() => {
-    if(id) {
+    if(id && consultarDB) {
       const obtenerProducto = async () => {
         const productoQuery = await firebase.db.collection('productos').doc(id);
         const producto = await productoQuery.get();        
         if(producto.exists) {
           guardarProducto(producto.data());
+          guardarConsultarDB(false);
        } else {
            guardarError(true);
+           guardarConsultarDB(false);
        }
       }
       obtenerProducto();
@@ -87,6 +90,7 @@ const Producto = () => {
       ...producto,
       votos: nuevoTotal
     });
+    guardarConsultarDB(true); // hay un voto, por lo tanto consultar a la BD
   }
 
   // Funciones para crear comentarios
@@ -128,6 +132,8 @@ const Producto = () => {
       ...producto,
       comentarios: nuevosComentarios
     });
+
+    guardarConsultarDB(true); // hay un comentario, por lo tanto consultar a la BD
   }
 
   return (

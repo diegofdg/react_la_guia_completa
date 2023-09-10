@@ -18,7 +18,7 @@ const DescripcionProducto = styled.div`
   column-gap: 2rem;
 `;
 
-const Titulo = styled.a`
+const Titulo = styled.p`
   font-size: 2rem;
   font-weight: bold;
   margin: 0;
