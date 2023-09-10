@@ -18,6 +18,16 @@ const ContenedorProducto = styled.div`
   }
 `;
 
+const CreadorProducto = styled.p`
+  padding: .5rem 2rem;
+  background-color: #DA552F;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: bold;
+  display: inline-block;
+  text-align: center;
+`;
+
 const Producto = () => {  
 
   // state del componente
@@ -85,6 +95,13 @@ const Producto = () => {
       ...comentario,
       [e.target.name] : e.target.value
     })
+  }
+
+  // Identifica si el comentario es del creador del producto
+  const esCreador = id => {
+    if(creador.id == id) {
+      return true;
+    }
   }
 
   const agregarComentario = e => {
@@ -181,7 +198,8 @@ const Producto = () => {
                             >
                               {''} {comentario.usuarioNombre}
                             </span>
-                          </p>                        
+                          </p>   
+                          { esCreador( comentario.usuarioId ) && <CreadorProducto>Es Creador</CreadorProducto> }                     
                         </li>
                       ))}
                     </ul>
