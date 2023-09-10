@@ -1,7 +1,5 @@
 import React from 'react';
 import { Global, css } from '@emotion/core';
-import Head from 'next/head';
-import Document from '../../Document';
 import Header from './Header';
 
 const Layout = props => {
@@ -60,10 +58,6 @@ const Layout = props => {
           }
         `}
       />
-
-      <Head>
-        <Document />
-      </Head>
 
       <Header />
 
