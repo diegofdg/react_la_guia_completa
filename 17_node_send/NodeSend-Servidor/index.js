@@ -12,6 +12,7 @@ const port = process.env.PORT || 4000;
 
 // Habilitar leer los valores de un body
 app.use( express.json() );
+app.use('/api/auth', require('./routes/auth'));
 
 // Rutas de la app
 app.use('/api/usuarios', require('./routes/usuarios'));
