@@ -15,7 +15,7 @@ exports.nuevoEnlace = async (req, res, next) => {
   const { nombre_original } = req.body;
   const enlace = new Enlaces();
   enlace.url = shortid.generate();
-  enlace.nombre = shortid.generate();;
+  enlace.nombre = shortid.generate();
   enlace.nombre_original = nombre_original;
   
   // Si el usuario esta autenticado
@@ -57,6 +57,7 @@ exports.obtenerEnlace = async (req, res, next) => {
 
   // Verificar si existe el enlace
   const enlace = await Enlaces.findOne({ url });
+  console.log(enlace)
 
   if(!enlace) {
     res.status(404).json({msg: 'Ese Enlace no existe'});
@@ -67,13 +68,16 @@ exports.obtenerEnlace = async (req, res, next) => {
   res.json({archivo: enlace.nombre})
 
   // Si las descargas son iguales a 1 - Borrar la entrada y borrar el archivo
-  const { descargas } = enlace;
+  const { descargas, nombre } = enlace;
 
   if(descargas === 1) {
-    console.log('Si solo 1');
+    
     // Eliminar el archivo 
-
+    req.archivo = nombre;
+    
     // Eliminar la entrada de la bd
+    await Enlaces.findOneAndRemove(req.params.url);
+
     next();
   } else {
     // Si las descargas son > 1 - Restar 1 descarga
