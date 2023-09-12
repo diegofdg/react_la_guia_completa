@@ -13,4 +13,8 @@ router.post('/',
   enlacesController.nuevoEnlace
 );
 
+router.get('/:url',
+  enlacesController.obtenerEnlace
+);
+
 module.exports = router;
