@@ -22,7 +22,40 @@ export default function CrearCuenta() {
                   id="nombre"
                   placeholder="Nombre de Usuario"
                 />
-              </div>              
+              </div>
+              <div className="mb-4">
+                <label 
+                  className="block text-black text-sm font-bold mb-2"
+                  htmlFor="email"
+                >
+                  Email
+                </label>
+                <input
+                  type="text"
+                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  id="email"
+                  placeholder="Email de Usuario"
+                />
+              </div>
+              <div className="mb-4">
+                <label 
+                  className="block text-black text-sm font-bold mb-2"
+                  htmlFor="password"
+                >
+                  Password
+                </label>
+                <input
+                  type="password"
+                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  id="password"
+                  placeholder="Password de Usuario"
+                />
+              </div>
+              <input 
+                type="submit"
+                className="bg-red-500 hover:bg-gray-900 w-full p-2 text-white uppercase font-bold"
+                value="Crear Cuenta"
+              />
             </form>
           </div>
         </div>
