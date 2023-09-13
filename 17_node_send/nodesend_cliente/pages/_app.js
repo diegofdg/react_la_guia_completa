@@ -4,6 +4,7 @@ import '../styles/globals.css';
 function MyApp({ Component, pageProps }) {
   return (
     <AuthState>
+      <title>ReactNodeSend</title>
       <Component {...pageProps} />
     </AuthState>
   );
