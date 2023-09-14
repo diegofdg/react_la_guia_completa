@@ -5,7 +5,8 @@ import authReducer from './authReducer';
 import { 
   REGISTRO_EXITOSO,
   REGISTRO_ERROR,
-  OCULTAR_ALERTA
+  LIMPIAR_ALERTA,
+  LOGIN_ERROR
 } from '../../types';
 
 import clienteAxios from '../../config/axios';
@@ -40,14 +41,28 @@ const AuthState = ({children}) => {
     // Limpia la alerta después de 3 segundos
     setTimeout(() => {
       dispatch({
-        type: OCULTAR_ALERTA
+        type: LIMPIAR_ALERTA
       })
     }, 3000);
   }
 
   // Autenticar Usuarios
-  const iniciarSesion = datos => {
-    console.log(datos);
+  const iniciarSesion = async datos => {
+    try {
+      const respuesta = await clienteAxios.post('/api/auth', datos);
+      console.log(respuesta);
+    } catch (error) {
+      dispatch({
+        type: LOGIN_ERROR,
+        payload: error.response.data.msg
+      })
+    }
+    // Limpia la alerta después de 3 segundos
+    setTimeout(() => {
+      dispatch({
+        type: LIMPIAR_ALERTA
+      })
+    }, 3000);
   }
 
   return (
