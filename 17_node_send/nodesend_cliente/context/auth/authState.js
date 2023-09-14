@@ -8,7 +8,8 @@ import {
   LIMPIAR_ALERTA,
   LOGIN_EXITOSO,
   LOGIN_ERROR,
-  USUARIO_AUTENTICADO
+  USUARIO_AUTENTICADO,
+  CERRAR_SESION
 } from '../../types';
 
 import clienteAxios from '../../config/axios';
@@ -74,24 +75,31 @@ const AuthState = ({children}) => {
   // Retorne el Usuario autenticado en base al JWT
   const usuarioAutenticado = async () => {
     const token = localStorage.getItem('token');
-      if(token) {
-        tokenAuth(token)
-      }
+    if(token) {
+      tokenAuth(token)
+    }
 
-      try {
-        const respuesta = await clienteAxios.get('/api/auth');
-        if(respuesta.data.usuario) {
-          dispatch({
-            type: USUARIO_AUTENTICADO,
-            payload: respuesta.data.usuario
-          }) 
-        }
-      } catch (error) {
+    try {
+      const respuesta = await clienteAxios.get('/api/auth');
+      if(respuesta.data.usuario) {
         dispatch({
-          type: LOGIN_ERROR,
-          payload: error.response.data.msg
-        })
+          type: USUARIO_AUTENTICADO,
+          payload: respuesta.data.usuario
+        }) 
       }
+    } catch (error) {
+      dispatch({
+        type: LOGIN_ERROR,
+        payload: error.response.data.msg
+      })
+    }
+  }
+
+  // Cerrar la sesión
+  const cerrarSesion = () => {
+    dispatch({
+        type: CERRAR_SESION
+    })
   }
 
   return (
@@ -103,7 +111,8 @@ const AuthState = ({children}) => {
         mensaje: state.mensaje,
         registrarUsuario,
         iniciarSesion,
-        usuarioAutenticado
+        usuarioAutenticado,
+        cerrarSesion
       }}
     >
       {children}
