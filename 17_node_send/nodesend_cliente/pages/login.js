@@ -4,12 +4,22 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import authContext from '../context/auth/authContext';
 import Alerta from '../components/Alerta';
+import { useRouter } from 'next/router';
 
 export default function Index() {
 
   // definir el context
   const AuthContext = useContext(authContext);
-  const { mensaje, iniciarSesion } = AuthContext;
+  const { mensaje, autenticado, iniciarSesion } = AuthContext;
+
+  // Next router
+  const router = useRouter();
+
+  useEffect(() => {
+    if(autenticado) {
+      router.push('/');
+    }
+  }, [autenticado]);
 
   // Formulario y validación con formik y Yup
   const formik = useFormik({

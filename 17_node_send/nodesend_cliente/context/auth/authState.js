@@ -6,6 +6,7 @@ import {
   REGISTRO_EXITOSO,
   REGISTRO_ERROR,
   LIMPIAR_ALERTA,
+  LOGIN_EXITOSO,
   LOGIN_ERROR
 } from '../../types';
 
@@ -15,7 +16,7 @@ const AuthState = ({children}) => {
   
   // Definir un state inicial
   const initialState = {
-    token: '',
+    token: typeof window !== 'undefined' ? localStorage.getItem('token') : '',
     autenticado: null,
     usuario: null,
     mensaje: null
@@ -50,7 +51,10 @@ const AuthState = ({children}) => {
   const iniciarSesion = async datos => {
     try {
       const respuesta = await clienteAxios.post('/api/auth', datos);
-      console.log(respuesta);
+      dispatch({
+        type: LOGIN_EXITOSO,
+        payload: respuesta.data.token
+      })
     } catch (error) {
       dispatch({
         type: LOGIN_ERROR,
