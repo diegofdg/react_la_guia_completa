@@ -3,7 +3,9 @@ import authContext from './authContext';
 import authReducer from './authReducer';
 
 import { 
-  REGISTRO_EXITOSO
+  REGISTRO_EXITOSO,
+  REGISTRO_ERROR,
+  OCULTAR_ALERTA
 } from '../../types';
 
 import clienteAxios from '../../config/axios';
@@ -30,8 +32,17 @@ const AuthState = ({children}) => {
         payload: respuesta.data.msg
       });
     } catch (error) {
-      console.log(error);
+      dispatch({
+        type: REGISTRO_ERROR,
+        payload: error.response.data.msg
+      })
     }
+    // Limpia la alerta después de 3 segundos
+    setTimeout(() => {
+      dispatch({
+        type: OCULTAR_ALERTA
+      })
+    }, 3000);
   }  
 
   return (
