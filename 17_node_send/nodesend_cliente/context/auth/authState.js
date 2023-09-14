@@ -69,6 +69,11 @@ const AuthState = ({children}) => {
     }, 3000);
   }
 
+  // Retorne el Usuario autenticado en base al JWT
+  const usuarioAutenticado = async () => {
+    console.log('revisando...')
+  }
+
   return (
     <authContext.Provider
       value={{
@@ -77,7 +82,8 @@ const AuthState = ({children}) => {
         usuario: state.usuario,
         mensaje: state.mensaje,
         registrarUsuario,
-        iniciarSesion
+        iniciarSesion,
+        usuarioAutenticado
       }}
     >
       {children}
