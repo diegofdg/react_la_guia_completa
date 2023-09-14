@@ -43,7 +43,12 @@ const AuthState = ({children}) => {
         type: OCULTAR_ALERTA
       })
     }, 3000);
-  }  
+  }
+
+  // Autenticar Usuarios
+  const iniciarSesion = datos => {
+    console.log(datos);
+  }
 
   return (
     <authContext.Provider
@@ -53,6 +58,7 @@ const AuthState = ({children}) => {
         usuario: state.usuario,
         mensaje: state.mensaje,
         registrarUsuario,
+        iniciarSesion
       }}
     >
       {children}
