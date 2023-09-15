@@ -1,11 +1,13 @@
 import AuthState from '../context/auth/authState';
-import '../styles/globals.css';
+import AppState from '../context/app/appState';
 
 function MyApp({ Component, pageProps }) {
   return (
     <AuthState>
-      <title>ReactNodeSend</title>
-      <Component {...pageProps} />
+      <AppState>
+        <title>ReactNodeSend</title>
+        <Component {...pageProps} />
+      </AppState>
     </AuthState>
   );
 }

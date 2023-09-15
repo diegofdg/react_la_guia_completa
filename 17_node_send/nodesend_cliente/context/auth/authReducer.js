@@ -1,7 +1,7 @@
 import { 
   REGISTRO_EXITOSO,
   REGISTRO_ERROR,
-  LIMPIAR_ALERTA,
+  OCULTAR_ALERTA,
   LOGIN_EXITOSO,
   LOGIN_ERROR,
   USUARIO_AUTENTICADO,
@@ -25,7 +25,7 @@ export default (state, action) => {
         token: action.payload,
         autenticado: true
       } 
-    case LIMPIAR_ALERTA:
+    case OCULTAR_ALERTA:
       return {
         ...state,
         mensaje: null
