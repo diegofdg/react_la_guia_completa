@@ -24,6 +24,12 @@ const AppState = ({children}) => {
             type: MOSTRAR_ALERTA,
             payload: msg
         });
+
+        setTimeout(() => {
+            dispatch({
+                type: OCULTAR_ALERTA
+            })
+        }, 3000);
     }
     return (
         <appContext.Provider
