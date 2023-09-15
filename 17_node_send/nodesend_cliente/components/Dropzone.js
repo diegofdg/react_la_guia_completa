@@ -4,7 +4,11 @@ import clienteAxios from '../config/axios';
 
 const Dropzone = () => {
 
-  const onDrop = useCallback( async (acceptedFiles) => {
+  const onDropRejected = () => {
+    console.log('No se pudo subir, el Limite es 1MB, obten una cuenta gratis para subir archivos más grandes');
+  }
+
+  const onDropAccepted = useCallback( async (acceptedFiles) => {
     // Crear un form Data
     const formData = new FormData();
     formData.append('archivo', acceptedFiles[0]);   
@@ -14,7 +18,7 @@ const Dropzone = () => {
   }, []);
   
   // Extraer contenido de Dropzone
-  const { getRootProps, getInputProps, isDragActive, acceptedFiles } = useDropzone({onDrop}); 
+  const { getRootProps, getInputProps, isDragActive, acceptedFiles } = useDropzone({onDropAccepted, onDropRejected, maxSize: 1000000}); 
 
   const archivos = acceptedFiles.map( archivo => (
     <li key={archivo.lastModified} className="bg-white flex-1 p-3 mb-4 shadow-lg rounded">
