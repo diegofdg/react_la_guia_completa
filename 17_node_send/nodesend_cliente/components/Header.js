@@ -12,9 +12,10 @@ const Header = () => {
       <Link href='/'>
         <img className="w-64 mb-8 md:mb-0 cursor-pointer" src="/logo.svg" />
       </Link>
+      <div className="flex items-center">
         {
           usuario ? (
-            <div className="flex items-center">
+            <div>
               <p className="mr-2">Hola {usuario.nombre}</p>
               <button 
                 type="button"
@@ -34,7 +35,8 @@ const Header = () => {
               </Link>
             </>
           )
-      }
+        }
+      </div>
     </header>
   );
 }
