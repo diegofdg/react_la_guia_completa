@@ -38,6 +38,11 @@ export default (state, action) => {
         mensaje_archivo: action.payload,
         cargando: null,
       }
+    case CREAR_ENLACE_EXITO:
+      return {
+        ...state,
+        url: action.payload
+      }
     default:
       return state
   }
