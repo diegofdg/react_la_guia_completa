@@ -15,9 +15,18 @@ const Dropzone = () => {
   
   // Extraer contenido de Dropzone
   const { getRootProps, getInputProps, isDragActive, acceptedFiles } = useDropzone({onDrop});  
+  const archivos = acceptedFiles.map( archivo => (
+    <li key={archivo.lastModified} className="bg-white flex-1 p-3 mb-4 shadow-lg rounded">
+      <p className="font-bold text-xl">{archivo.path}</p> 
+      <p className="text-sm text-gray-500">{ (archivo.size / Math.pow(1024, 2)).toFixed(2) } MB</p>
+    </li>
+  ));
 
   return ( 
     <div className="md:flex-1 mb-3 mx-2 mt-16 lg:mt-0 flex flex-col items-center justify-center border-dashed border-gray-400 border-2 bg-gray-100 px-4">
+      <ul>
+        {archivos}
+      </ul>
       <div { ...getRootProps({ className: 'dropzone w-full py-32' }) }>
         <input className="h-100 " { ...getInputProps() } />
           {
