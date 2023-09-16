@@ -1,5 +1,7 @@
 import React, { useState, useContext } from 'react';
+import appContext from '../../context/app/appContext';
 import Layout from '../../components/Layout';
+import Alerta from '../../components/Alerta';
 import clienteAxios from '../../config/axios';
 
 export async function getServerSideProps({ params }) {
@@ -27,13 +29,28 @@ export async function getServerSidePaths() {
   }  
 }
 
-export default ({enlace}) => {   
+export default ({enlace}) => {
+  // Context de la app
+  const AppContext = useContext(appContext);
+  const {  mostrarAlerta, mensaje_archivo } = AppContext;
   
   const [ tienePassword, setTienePassword ] = useState(enlace.password);
+  const [ password, setPassword ] = useState('');
 
   const verificarPassword = async e => {
     e.preventDefault();
-    console.log('Verificando...');    
+    
+    const data = {
+      password
+    }
+
+    try {
+      const resultado = await clienteAxios.post(`/api/enlaces/${enlace.enlace}`, data);
+      enlace.archivo = resultado.data.archivo;
+      setTienePassword(resultado.data.password);
+    } catch (error) {
+      mostrarAlerta(error.response.data.msg);
+    } 
   }
 
   return (
@@ -41,6 +58,9 @@ export default ({enlace}) => {
       { tienePassword ? (
         <>
           <p className="text-center">Este enlace esta protegido por un password, colocalo a continuación</p>
+          
+          { mensaje_archivo && <Alerta /> }
+
           <div className="flex justify-center mt-5">
             <div className="w-full max-w-lg">
               <form
@@ -59,6 +79,8 @@ export default ({enlace}) => {
                     className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                     id="password"
                     placeholder="Password del enlace"
+                    value={password}
+                    onChange={ e => setPassword(e.target.value) }
                   />
                 </div>
                 <input 

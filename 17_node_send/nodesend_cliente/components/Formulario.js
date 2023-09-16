@@ -35,7 +35,7 @@ const Formulario = () => {
         { tienePassword ? (
           <input 
             type="password" 
-            class="appearance-none w-full mt-2 bg-white border border-gray-400 text-black py-3 px-4 pr-8 rounded leading-none focus:outline-none focus:border-gray-500" 
+            className="appearance-none w-full mt-2 bg-white border border-gray-400 text-black py-3 px-4 pr-8 rounded leading-none focus:outline-none focus:border-gray-500" 
             onChange={ e => agregarPassword(e.target.value) }
           />
         ) : null }

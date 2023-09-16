@@ -8,8 +8,6 @@ module.exports = (req, res, next ) => {
     // Obtener el Token 
     const token = authHeader.split(' ')[1];
 
-    // console.log(token)
-
     if(token) {
       // comprobar el JWT
       try {
