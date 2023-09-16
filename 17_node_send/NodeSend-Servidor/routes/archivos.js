@@ -8,4 +8,8 @@ router.post('/',
   archivosController.subirArchivo
 );
 
+router.get('/:archivo', 
+  archivosController.descargar
+);
+
 module.exports = router;
