@@ -2,6 +2,7 @@ import React from 'react';
 import { render, screen, cleanup, fireEvent } from '@testing-library/react'
 import Formulario from '../components/Formulario';
 import '@testing-library/jest-dom/extend-expect';
+import userEvent from '@testing-library/user-event';
 
 const crearCita = jest.fn();
 
@@ -41,11 +42,45 @@ test('<Formulario /> Validacion de Formulario', () => {
 
   // Click en el botón de submit
   const btnSubmit = screen.getByTestId('btn-submit');
-  fireEvent.click(btnSubmit);
+  userEvent.click(btnSubmit);
 
   // Revisar por la alerta
-  expect(screen.getByTestId('alerta')).toBeInTheDocument();
-  expect(screen.getByTestId('alerta').textContent).toBe('Todos los campos son obligatorios');
-  expect(screen.getByTestId('alerta').tagName).toBe('P');
-  expect(screen.getByTestId('alerta').tagName).not.toBe('BUTTON');
+  const alerta = screen.getByTestId('alerta');
+  expect(alerta).toBeInTheDocument();
+  expect(alerta.textContent).toBe('Todos los campos son obligatorios');
+  expect(alerta.tagName).toBe('P');
+  expect(alerta.tagName).not.toBe('BUTTON');
+});
+
+
+test('<Formulario /> Validacion de Formulario', () => {
+  render(
+    <Formulario
+      crearCita={crearCita}
+    />
+  );
+
+  userEvent.type(screen.getByTestId('mascota'), 'Hook');
+  userEvent.type(screen.getByTestId('propietario'), 'Juan');
+  userEvent.type(screen.getByTestId('fecha'), '2021-09-10');
+  userEvent.type(screen.getByTestId('hora'), '10:30');
+  userEvent.type(screen.getByTestId('sintomas'), 'Solo duerme');
+
+  /* fireEvent.change(screen.getByTestId('mascota'), {
+    target: {
+      value: 'Hook'
+    }
+  });*/
+
+  // Click en el botón de submit
+  const btnSubmit = screen.getByTestId('btn-submit');
+  userEvent.click(btnSubmit);
+
+  // Revisar por la alerta
+  const alerta = screen.queryByTestId('alerta');
+  expect(alerta).not.toBeInTheDocument();
+
+  // Crear cita y comprobar que la función se haya ejecutado
+  expect(crearCita).toHaveBeenCalled();
+  expect(crearCita).toHaveBeenCalledTimes(1);
 });
