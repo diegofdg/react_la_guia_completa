@@ -20,3 +20,26 @@ test('<App /> La aplicación funciona bien la primera vez', () => {
   expect(screen.getByText('No hay citas')).toBeInTheDocument(); 
   expect(screen.getByText('Crear Cita')).toBeInTheDocument(); 
 });
+
+test('<App /> La aplicación funciona bien la primera vez', () => {
+
+  render(<App />);
+  
+  userEvent.type(screen.getByTestId('mascota'), 'Hook');
+  userEvent.type(screen.getByTestId('propietario'), 'Juan');
+  userEvent.type(screen.getByTestId('fecha'), '2021-09-10');
+  userEvent.type(screen.getByTestId('hora'), '10:30');
+  userEvent.type(screen.getByTestId('sintomas'), 'Solo duerme');
+
+  // Click en el botón de submit
+  const btnSubmit = screen.getByTestId('btn-submit');
+  userEvent.click(btnSubmit);
+
+  // Revisar por la alerta
+  const alerta = screen.queryByTestId('alerta');
+  expect(alerta).not.toBeInTheDocument();
+
+  // Revisar por el título dinámico
+  expect(screen.getByTestId('titulo-dinamico').textContent).toBe('Administra tus Citas');
+  expect(screen.getByTestId('titulo-dinamico').textContent).not.toBe('No hay citas');
+});
