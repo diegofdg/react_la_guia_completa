@@ -38,4 +38,42 @@ describe('<Formularios />' , () => {
     
   });
 
+  it('<NuevaCuenta /> - Verificar componente de nueva cuenta', () => {
+    cy.get('[data-cy=titulo]')
+      .invoke('text')
+      .should('equal', 'Obtener una cuenta');
+    
+    cy.get('[data-cy=nueva-cuenta]')
+    .should('exist');
+
+    cy.get('[data-cy=nombre-input]')
+    .should('exist');
+
+    cy.get('[data-cy=email-input]')
+    .should('exist');
+
+    cy.get('[data-cy=password-input]')
+    .should('exist')
+    .should('have.prop', 'type')
+    .should('equal', 'password');
+
+    cy.get('[data-cy=repetir-input]')
+    .should('exist')
+    .should('have.prop', 'type')
+    .should('equal', 'password');
+  
+    cy.get('[data-cy=submit-nueva-cuenta]')
+    .should('exist')
+    .should('have.value', 'Registrarme')
+    .should('have.class', 'btn-primario')
+    .should('not.have.class', 'Crear Nueva Cuenta');
+
+    cy.get('[data-cy=enlace-login')
+      .should('have.attr', 'href')
+      .should('eq', '/');
+    
+    cy.visit('/');
+
+  });
+
 });
