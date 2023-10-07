@@ -29,7 +29,7 @@ const ListadoProyectos = () => {
 
     return ( 
 
-        <ul className="listado-proyectos">
+        <ul data-cy="listado-proyectos" className="listado-proyectos">
             
         
             { alerta   ? ( <div className={`alerta ${alerta.categoria} `}>{alerta.msg}</div>  ) : null  }

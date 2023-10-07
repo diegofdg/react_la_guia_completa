@@ -51,6 +51,7 @@ const NuevoProyecto = () => {
     return ( 
         <Fragment>
             <button 
+                data-cy="boton-nuevo-proyecto"
                 type="button"
                 className="btn btn-block btn-primario"
                 onClick={ onClickFormulario }
@@ -63,6 +64,7 @@ const NuevoProyecto = () => {
                             onSubmit={onSubmitProyecto}
                         >
                             <input 
+                                data-cy="input-nuevo-proyecto"
                                 type="text"
                                 className="input-text"
                                 placeholder="Nombre Proyecto"
@@ -72,6 +74,7 @@ const NuevoProyecto = () => {
                             />
 
                             <input 
+                                data-cy="submit-nuevo-proyecto"
                                 type="submit"
                                 className="btn btn-primario btn-block"
                                 value="Agregar Proyecto"
@@ -80,7 +83,7 @@ const NuevoProyecto = () => {
                         </form>
                 ) : null }
 
-            { errorformulario ? <p className="mensaje error">El nombre del Proyecto es obligatorio</p>  : null }
+            { errorformulario ? <p data-cy="alerta" className="mensaje error">El nombre del Proyecto es obligatorio</p>  : null }
         </Fragment>
      );
 }
