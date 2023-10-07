@@ -27,6 +27,7 @@ const Barra = () => {
                     data-cy="cerrar-sesion"
                     className="btn btn-blank cerrar-sesion"
                     onClick={ () => {
+                        console.log('click')
                         cerrarSesion();
                         history.push('/');
                     }}

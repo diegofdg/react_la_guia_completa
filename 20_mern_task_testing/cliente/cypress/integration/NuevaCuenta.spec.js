@@ -33,7 +33,7 @@ describe('<NuevaCuenta />' , () => {
     cy.get('[data-cy=alerta]')
       .should('exist')
       .invoke('text')
-      .should('eq', 'El password debe ser de al menos 6 caracteres');
+      .should('equal', 'El password debe ser de al menos 6 caracteres');
     
     cy.get('[data-cy=alerta]')
       .should('have.class', 'alerta-error');
@@ -52,7 +52,7 @@ describe('<NuevaCuenta />' , () => {
     cy.get('[data-cy=alerta]')
       .should('exist')
       .invoke('text')
-      .should('eq', 'Los passwords no son iguales');
+      .should('equal', 'Los passwords no son iguales');
     
     cy.get('[data-cy=alerta]')
       .should('have.class', 'alerta-error');
@@ -67,10 +67,31 @@ describe('<NuevaCuenta />' , () => {
     cy.get('[data-cy=selecciona]')
       .should('exist')
       .invoke('text')
-      .should('eq', 'Selecciona un proyecto');
+      .should('equal', 'Selecciona un proyecto');
     
     cy.get('[data-cy=cerrar-sesion]')
       .click();
-    
   });
+
+  it('<NuevaCuenta /> - Revisar usuarios duplicados', () => {
+    cy.visit('/nueva-cuenta');
+
+    cy.get('[data-cy=nombre-input]').type('Juan');
+    cy.get('[data-cy=email-input]').type('correo@correo.com');
+    cy.get('[data-cy=password-input]').type('123456');
+    cy.get('[data-cy=repetir-input]').type('123456');
+
+    cy.get('[data-cy=submit-nueva-cuenta]').click();
+
+    cy.get('[data-cy=alerta]')
+      .should('exist')
+      .invoke('text')
+      .should('equal', 'El usuario ya existe');
+    
+    cy.get('[data-cy=alerta]')
+      .should('have.class', 'alerta-error');
+
+  })
+
+  
 });
