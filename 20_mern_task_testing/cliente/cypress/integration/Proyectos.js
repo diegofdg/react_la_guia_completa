@@ -55,5 +55,26 @@ describe('<Administrador />' , () => {
 
   it('<Tareas /> - Completar, Descompletar, Editar y Eliminar', () => {
 
+    // Selecciona la primer tarea
+    cy.get('[data-cy=tarea]:nth-last-child(1) [data-cy=tarea-incompleta]').click();
+    cy.get('[data-cy=tarea]:nth-last-child(1) [data-cy=tarea-completa]').should('have.class', 'completo');
+
+    // Selecciona la primer tarea y la desmarca como tarea
+    cy.get('[data-cy=tarea]:nth-last-child(1) [data-cy=tarea-completa]').click();
+    cy.get('[data-cy=tarea]:nth-last-child(1) [data-cy=tarea-incompleta]').should('have.class', 'incompleto');
+
+    // Edición
+    cy.get('[data-cy=tarea]:nth-last-child(1) [data-cy=btn-editar]').click();
+
+    cy.get('[data-cy=input-tarea]').clear().type('Tarea actualizada');
+    cy.get('[data-cy=submit-tarea]').click();
+
+    // Eliminar tareas
+    cy.get('[data-cy=tarea]:nth-last-child(1) [data-cy=btn-eliminar]').click();
+    cy.get('[data-cy=tarea]:nth-last-child(1)').invoke('text').should('not.equal', 'Tarea actualizada');
+
+
+
+
   });
 });
