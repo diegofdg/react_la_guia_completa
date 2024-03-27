@@ -1,21 +1,25 @@
-// Unir 2 objetos
+// Objetos - Destructuring de dos o más objetos
 const producto = {
-    nombre: "Tablet",
-    precio: 300,
-    disponible: true
+  nombre: "Tablet",
+  precio: 300,
+  disponible: false
 }
+
 const cliente = {
-    nombre: 'Juan',
-    premium : true
+  nombre: "Juan",
+  premium: true
 }
 
-// const nuevoObjeto = Object.assign(producto, cliente) // No
+// const carrito = {
+//   cantidad: 1,
+//   ...producto // spread operator
+// }
 
-const nuevoObjeto2 = { 
-    producto: {...producto},
-    cliente: {...cliente}
+const nuevoObjeto = {
+  ...producto,
+  ...cliente,
 }
+console.log(nuevoObjeto)
 
+const nuevoObjeto2 = Object.assign(producto, cliente)
 console.log(nuevoObjeto2)
-console.log(cliente)
-console.log(producto)

@@ -1,21 +1,20 @@
 // Objetos - Manipulación
 const producto = {
-    nombre: "Tablet",
-    precio: 300,
-    disponible: true
+  nombre: "Tablet",
+  precio: 300,
+  disponible: false
 }
 
-// Object methods
-Object.freeze(producto) // - Freeze - No deja modificarlo, no permite añadir ni eliminar
-Object.seal(producto) // - Modificar propiedades existentes, no permite añadir ni eliminar
+// Object.freeze(producto)
+// Object.seal(producto)
 
 // Reescribir un valor
-producto.nombre = "Monitor Curvo"
+producto.disponible = true
 
-// Si no existe, lo va a añadir
-producto.imagen = "imagen.jpg"
+// Sino existe, lo va a añadir
+producto.imagen = 'imagen.jpg'
 
-// Eliminar una propiedad
-delete producto.disponible
+// Eliminar propiedad
+delete producto.precio
 
-console.table(producto)
+console.log(producto)

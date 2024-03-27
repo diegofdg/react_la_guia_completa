@@ -1,12 +1,14 @@
-// Imports y Exports
-import otraFuncionImportada from "./funciones.js"
-import { sumar } from "./funciones.js"
-import { restar as resta } from "./funciones.js"
+// Selectores
+const heading = document.querySelector('.heading')
 
-otraFuncionImportada()
+// console.log(heading)
+// console.log(heading.tagName)
+// console.log(heading.textContent)
+// console.log(heading.classList)
+// console.log(heading.id)
 
-let resultado = sumar(20, 30)
-console.log(resultado)
 
-resultado = resta(30, 20)
-console.log(resultado)
+const enlaces = document.querySelector('.navegacion a')
+const enlaces2 = document.querySelectorAll('.navegacion a')
+
+console.log(enlaces)

@@ -1,17 +1,15 @@
-// Ternarios
-const autenticado = true
-
-autenticado ? 
-    console.log('usuario autenticado') : 
-    console.log('No autenticado, dirigir hacia login')
-
-// Doble ternario
-const saldo = 600
-const pagar = 800
+const saldo = 1000
+const pagar = 1200
 const tarjeta = false
 
-saldo > pagar ? 
-    console.log('Puedes pagar con saldo') : 
-    tarjeta ? 
-        console.log('Puedes pagar con tarjeta') : 
-        console.log('No no puedes pagar')
+/**
+ * Logical Or y Logical And
+ * || Or - Al menos una se cumple
+ * && And - Revisa que todas se cumplan
+ */
+
+if (saldo > pagar || tarjeta) {
+  console.log('Puedes Pagar')
+} else {
+  console.log('No no puedes pagar')
+}

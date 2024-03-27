@@ -1,9 +1,14 @@
-// Funciones - Arrow Functions
-const sumar = (numero, numero2) => numero + 20
+sumar(10, 20)
+sumar(300, 1)
+sumar(100)
 
-const sumaArrow = () => 2 + 2
+// // Funciones - Function Expression
+// const sumar = function(numero1 = 0, numero2 = 0) {
+//   console.log(numero1 + numero2)
+// }
 
-const resultado = sumaArrow()
+function sumar(numero1 = 0, numero2 = 0) {
+  console.log(numero1 + numero2)
+}
 
-console.log(resultado)
 

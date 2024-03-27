@@ -1,18 +1,22 @@
-// Objetos - Destructuring con 2 o más objetos
-
+// Objetos - Destructuring de dos o más objetos
 const producto = {
-    nombre: "Tablet",
-    precio: 300,
-    disponible: true
+  nombre: "Tablet",
+  precio: 300,
+  disponible: false
 }
 
 const cliente = {
-    nombre: 'Juan',
-    premium : true
+  nombre: "Juan",
+  premium: true,
+  direccion: {
+    calle: "Calle México"
+  }
 }
 
-const { nombre, precio, disponible } = producto
-const { nombre: nombreCliente, premium } = cliente
+const { nombre } = producto
+const { nombre: nombreCliente, direccion: { calle } } = cliente
 
 console.log(nombre)
 console.log(nombreCliente)
+
+console.log(calle)

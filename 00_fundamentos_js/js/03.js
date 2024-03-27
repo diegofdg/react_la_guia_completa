@@ -1,54 +1,44 @@
-// Tipos de datos 
+// Tipos de Dato
 
 // Undefined
-let cliente 
-console.log(cliente)
-console.log(typeof cliente)
-
-// Boolean
-const descuento = false
-console.log(descuento)
-console.log(typeof descuento)
-
-// Number
-const numero1 = 20.20
-const numero2 = 30
-const numero3 = -100
-
-console.log(typeof numero1)
-console.log(typeof numero2)
-console.log(typeof numero3)
+// let cliente 
+// console.log(cliente)
+// console.log(typeof cliente)
 
 // Strings o Cadenas de Texto
-const alumno = "Juan"
-let producto = 'Monitor 20 pulgadas'
+// let alumno = "Juan"
+// console.log(alumno)
+// console.log(typeof alumno)
 
-const numero4 = "30"
-const numero5 = 30
+// const producto = 'Monitor 49 Pulgadas'
+// console.log(producto)
+// console.log(typeof producto)
 
-console.log(typeof numero4)
-console.log(typeof numero5)
+// Numbers
+// const numero = 20.20
+// const numero2 = 30
+// const numero3 = -100
+// const numero4 = "20"
+
+// console.log(typeof numero)
+// console.log(typeof numero2)
+// console.log(typeof numero3)
 
 // BigInt
-const numeroGrande = BigInt(918298193891887139831091038173813)
-console.log(typeof numeroGrande)
-const numero6 = 10
-const numero7 = 20
-console.log( numero6 + Number(numeroGrande))
+// const numeroGrande = BigInt(19381903839113838981391383198138913)
+// console.log(typeof numeroGrande)
 
-// Cohersión
-const numero8 = "30"
-const numero9 = 30
-console.log( typeof String(numero9))
-console.log( typeof Number(numero8))
-
-// Symbol
-const primerSymbol = Symbol(30)
-const segundoSymbol = Symbol(30)
-console.log( primerSymbol === segundoSymbol )
-console.log( primerSymbol.valueOf() )
-console.log( segundoSymbol.valueOf() )
+// Boolean
+// const descuento = true
+// console.log(typeof descuento)
 
 // Null
-const descuento2 = null
-console.log(typeof descuento2)
+// const descuento = null
+// console.log(descuento)
+// let precio = undefined
+// console.log(precio)
+
+// Symbol
+// const primerSymbol = Symbol(30)
+// const segundoSymbol = Symbol(30)
+// console.log(primerSymbol === segundoSymbol)

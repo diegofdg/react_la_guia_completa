@@ -1,13 +1,13 @@
+const numero1 = 20
+const numero2 = 20
 
-const saldo = 600
-const pagar = 500
-const tarjeta = true
 /*
-    || - Al menos una debe cumplirse
-    && - Todas deben cumplirse
+  ==  (Comparador no estricto)
+  === (Comparador estricto)
 */
-if(saldo > pagar && tarjeta ) {
-    console.log('puedes pagar')
-}  else {
-    console.log('No, no puedes pagar')
+
+if (numero1 === numero2) {
+  console.log('Si, son iguales')
+} else {
+  console.log('No, no son iguales')
 }

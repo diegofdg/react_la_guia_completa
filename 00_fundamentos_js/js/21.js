@@ -1,15 +1,14 @@
-// Scope
+// Ternarios
+const auth = true
 
-const precio = 300
+const saldo = 1000
+const pagar = 1200
+const tarjeta = true
 
-function unaFuncion() {
-    const precio = 600
-    console.log(precio)
-}
+// auth ? 
+//   console.log('Usuario autenticado') : 
+//   console.log('No Autenticado, ir a Login')
 
-if(true) {
-    console.log(precio)
-}
-
-
-unaFuncion()
+saldo > pagar || tarjeta ?
+  console.log('Si puedes pagar') :
+  console.log('no, no puedes pagar')

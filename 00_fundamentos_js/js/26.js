@@ -1,15 +1,27 @@
-// Eventos del DOM - Submit
+// Fetch API con Async / Await
+const url = 'https://jsonplaceholder.typicode.com/comments'
 
-const formulario = document.querySelector('#formulario')
-formulario.addEventListener('submit', e => {
-    e.preventDefault()
+// fetch(url)
+//   .then((response) => {
+//     if(response.ok) {
+//       return response.json()
+//     }
+//     throw new Error('Hubo un error...')
+//   })
+//   .then(data => console.log(data))
+//   .catch(error => console.log(error.message)) 
 
-    const nombre = document.querySelector('.nombre').value
-    const password = document.querySelector('.password').value
-    
-    if(nombre === '' || password === '') {
-        console.log('Todos los campos son obligatorios')
-    } else {
-        console.log('Todo bien, enviando...')
+const consultarAPI = async () => {
+  try {
+    const response = await fetch(url)
+    if (!response.ok) {
+      throw new Error('Hubo un error...')
     }
-})
+    const data = await response.json()
+    console.log(data)
+  } catch (error) {
+    console.log(error.message)
+  }
+}
+
+consultarAPI()

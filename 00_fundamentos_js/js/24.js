@@ -1,13 +1,11 @@
-// Eventos del DOM - Clicks
+import {sumar, restar, multiplicar, division} from './funciones.js'
 
-const heading = document.querySelector('.heading')
-heading.addEventListener('click', () =>  {
-    heading.textContent = 'Nuevo Heading al dar click'
-})
+const resultado1 = sumar(20, 10)
+const resultado2 = restar(20, 10)
+const resultado3 = multiplicar(20, 10)
+const resultado4 = division(20, 10)
 
-const enlaces = document.querySelectorAll('.navegacion a')
-enlaces.forEach( enlace => {
-    enlace.addEventListener('click', () => {
-        console.log('Diste click en un enlace')
-    })
-})
+console.log(resultado1)
+console.log(resultado2)
+console.log(resultado3)
+console.log(resultado4)

@@ -1,17 +1,12 @@
-// Eventos del DOM - Inputs
+// Fetch API con Promises
+const url = 'https://jsonplaceholder.typicode.com/comments'
 
-const inputNombre = document.querySelector('.nombre')
-inputNombre.addEventListener('input', function(e) {
-    console.log(e.target.value)
-})
-
-const inputPassword = document.querySelector('.password')
-inputPassword.addEventListener('input', funcionPassword)
-
-function funcionPassword() {
-    inputPassword.type = 'text'
-
-    setTimeout(() => {
-        inputPassword.type = 'password'
-    }, 100);
-}
+fetch(url)
+  .then((response) => {
+    if (response.ok) {
+      return response.json()
+    }
+    throw new Error('Hubo un error...')
+  })
+  .then(data => console.log(data))
+  .catch(error => console.log(error.message))

@@ -1,16 +1,17 @@
-// Fetch API  - Async Await
+// Eventos del DOM - Clicks
+const heading = document.querySelector('.heading')
+const enlaces = document.querySelectorAll('.navegacion a')
 
-const url = "https://jsonplaceholder.typicode.com/comments"
+// heading.addEventListener('mouseenter', () => {
+//   heading.textContent = 'Nuevo heading al dar click...'
+// })
+// heading.addEventListener('mouseleave', () => {
+//   heading.textContent = 'Saliendo...'
+// })
 
-const consultarAPI = async () => {
-    const respuesta = await fetch(url)
-    console.log('Después de respuesta')
-
-    const resultado = await respuesta.json()
-    console.log('Después de resultado')
-    resultado.forEach( comentario => {
-        console.log(comentario)
-    })
-}
-
-consultarAPI();
+enlaces.forEach(enlace => {
+  enlace.addEventListener('click', (e) => {
+    e.preventDefault()
+    e.target.textContent = 'Diste click...'
+  })
+})

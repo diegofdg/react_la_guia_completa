@@ -1,14 +1,10 @@
-// Fetch API
+// Manipular elementos HTML con JS
+const heading = document.querySelector('.heading')
+const enlaces = document.querySelectorAll('.navegacion a')
 
-const url = "https://jsonplaceholder.typicode.com/comments"
+heading.textContent = 'Un nuevo heading...'
 
-const consultarAPI = () => {
-    fetch(url)
-        .then( respuesta => respuesta.json())
-        .then( resultado => {
-            resultado.forEach( comentario => {
-                console.log(comentario)
-            })
-        })
-}
-consultarAPI();
+const inputNombre = document.querySelector('#nombre')
+inputNombre.value = 'Un nuevo valor...'
+
+enlaces.forEach( enlace => enlace.textContent = 'Nuevo Enlace')

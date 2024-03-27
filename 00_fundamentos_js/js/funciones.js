@@ -1,18 +1,7 @@
-function sumar(numero1, numero2) {
-    return numero1 + numero2
-} 
+export const sumar = (n1, n2) => n1 + n2
 
-function restar(numero1, numero2) {
-    return numero1 - numero2
-}
+export const restar = (n1, n2) => n1 - n2
 
-function otraFuncion(){
-    return console.log("Usando export default")
-}
+export const multiplicar = (n1, n2) =>  n1 * n2
 
-export default otraFuncion
-
-export {
-    sumar,
-    restar
-}
+export const division = (n1, n2)  => n1 / n2

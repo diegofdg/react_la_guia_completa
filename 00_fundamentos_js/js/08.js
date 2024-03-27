@@ -1,10 +1,11 @@
-// Arrays o Arreglos
-const tecnologias = [20, 30, true, 'React', 'JavaScript']
+// Template Strings y Concatenación
 
+const producto = "Tablet de 12 Pulgadas"
+const precio = 400
+const marca = "Orange"
 
-console.log(tecnologias[10])
-console.table(tecnologias)
+console.log('El Producto es: ' + producto)
+console.log(`El Producto es: ${producto} `)
 
-
-console.log(tecnologias.length)
-console.log(tecnologias.toString())
+console.log(producto + " $" + precio + " Dolares, marca: " +  marca)
+console.log(`${producto} $${precio} Dolares, marca: ${marca}`)

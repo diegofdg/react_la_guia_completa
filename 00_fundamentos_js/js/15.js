@@ -1,14 +1,6 @@
-const tecnologias = ['HTML', 'CSS', 'JavaScript', 'React', 'Node.js']
+// Funciones - Arrow Functions
+const sumar = (numero1 = 0, numero2 = 0) => console.log(numero1 + numero2)
 
-const nuevoArray = tecnologias.map( tech => {
-    if(tech === 'HTML') {
-        return 'GraphQL'
-    } else {
-        return tech
-    }
-})
-
-const nuevoArray2 = tecnologias.filter( tech => tech !== 'React')
-
-console.log(nuevoArray)
-console.log(nuevoArray2)
+sumar(10, 20)
+sumar(300, 1)
+sumar(100)

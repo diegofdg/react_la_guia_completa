@@ -1,15 +1,8 @@
-// Iteradores en JS
-const tecnologias = ['HTML', 'CSS', 'JavaScript', 'React', 'Node.js']
+const tecnologias = ['HTML', 'CSS', 'JavaScript', 'React.js', 'Node.js']
 
-// forEach - Acceder a cada elemento del array (recorre pero no te crea un nuevo array)
-const arrayForeach = tecnologias.forEach( function (tech) {
-    return tech
-})
+const react = tecnologias[3]
 
-// Crear un nuevo array (recorre y te crea un nuevo array)
-const arrayMap = tecnologias.map( function (tech) {
-    return tech
-})
+// Destructuring arrays
+const [ , , , reactjs] = tecnologias
 
-console.log(arrayForeach)
-console.log(arrayMap)
+console.log(reactjs)

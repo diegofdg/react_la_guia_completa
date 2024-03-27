@@ -1,13 +1,30 @@
-// Template Strings
+// Eventos del DOM - Submit
 
-const producto = "Tablet de 12 pulgadas"
-const precio = 400
-const marca = "Orange"
+const formulario = document.querySelector('#formulario')
+formulario.addEventListener('submit', e => {
+  e.preventDefault()
 
-function textoDeFuncion() {
-    return "Este texto proviene de la función"
-}
+  const nombre = document.querySelector('#nombre').value
+  const password = document.querySelector('#password').value
 
-console.log( producto + " $" + precio + " Dolares, Marca: " + marca )
+  // Prevenir nuevas alertas
+  const alertaPrevia = document.querySelector('.alerta')
+  alertaPrevia?.remove()
 
-console.log(`${producto} $${precio} Dolares, Marca: ${marca}, ${textoDeFuncion()}`)
+  const alerta = document.createElement('DIV')
+  alerta.classList.add('alerta', 'text-white', 'uppercase', 'text-sm', 'text-center', 'p-2', 'font-black')
+
+  if (nombre === '' || password === '') {
+    alerta.textContent = 'Todos los campos son obligatorios...'
+    alerta.classList.add('bg-red-500')
+  } else {
+    alerta.textContent = 'Todo bien, iniciando sesión...'
+    alerta.classList.add('bg-green-500')
+  }
+
+  formulario.appendChild(alerta)
+
+  setTimeout(() => {
+    alerta.remove()
+  }, 3000);
+})

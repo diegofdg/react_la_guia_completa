@@ -1,23 +1,22 @@
-// Funciones - Function Declaration (se pueden llamar aún antes de declararlas)
+const tecnologias = ['HTML', 'CSS', 'JavaScript', 'React.js', 'Node.js', 'Nest.js', 'TypeScript']
 
-sumar()
+// for(let i = 0; i < tecnologias.length; i++) {
+//   console.log(tecnologias[i] )
+// }
 
-function sumar(numero = 0, numero2 = 0) {
-    console.log( numero + numero2 )
+// forEach
+// tecnologias.forEach(function(tech) {
+//   console.log(tech)
+// })
+
+// map
+const arrayMap = tecnologias.map(function (tech) {
+  return tech
+})
+
+// for ... of
+for (let tech of tecnologias) {
+  console.log(tech)
 }
 
-sumar(10, 20)
-sumar(2, 3)
-sumar(100)
-
-function sumar2(numero = 0, numero2 = 0) {
-    return { 
-        resultado: numero + numero2, 
-        mensaje: 'Hola Mundo'
-    }
-}
-
-const { resultado, mensaje } = sumar2(20, 30)
-
-console.log(resultado)
-console.log(mensaje)
+// console.log(arrayMap)

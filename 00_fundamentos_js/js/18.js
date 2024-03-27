@@ -1,19 +1,21 @@
-// Comparación y Operador Estricto
-const numero1 = 20
-const numero2 = "20"
+// Condicionales
+const disponible = 200
+const retirar = 200
 
-/*
-    ==  ( Comparación pero no es estricto)
-    === (Comparación estricta - Revisa valor y tipo de dato)
-*/
-
-if(numero1 === numero2 ) {
-    console.log('Si!, son iguales')
+if (disponible >= retirar) {
+  // Se cumple la condición
+  console.log('Si puedes retirar')
 } else {
-    console.log('No, no son iguales')
+  // no se cumple la condición
+  console.log('Saldo insuficiente')
 }
 
-const autenticado = true
-if(autenticado) {
-    console.log('Si esta autenticado')
-}
+/**
+ *  > Mayor que
+ *  < Menor que
+ *  >= Mayor o igual
+ *  <= Menor o igual
+ *  == igual
+ *  === Igual estricto
+ *  !== Diferente a
+ */

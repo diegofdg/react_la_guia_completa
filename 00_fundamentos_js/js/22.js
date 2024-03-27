@@ -1,15 +1,16 @@
-// Selectores del DOM
+// Optional chaining (?)
+const alumno = {
+  nombre: 'Juan',
+  clase: 'Programación 1',
+  aprobado: true,
+  examenes: {
+      examen1: 90
+  }
+}
 
-const heading = document.querySelector('.heading')
+console.log(alumno.examenes?.examen1)
+console.log('Después de ALUMNO')
 
-console.log(heading)
-console.log(heading.textContent)
-console.log(heading.tagName)
-console.log(heading.classList)
-console.log(heading.id)
-
-const enlaces = document.querySelectorAll('.navegacion a')
-console.log(enlaces)
-
-const noExiste = document.querySelectorAll('.no-existe')
-console.log(noExiste)
+// Nullish coalescing operator (??)
+const pagina = 10 ?? 1
+console.log(pagina)

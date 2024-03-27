@@ -1,6 +1,16 @@
-// Destructuring de arrays
-const tecnologias = ['HTML', 'CSS', 'JavaScript', 'React', 'Node.js']
+const tecnologias = ['HTML', 'CSS', 'JavaScript', 'React.js', 'Node.js']
+// const tecnologias2 = tecnologias.filter(function(tech) {
+//   if(tech !== 'HTML') {
+//     return tech
+//   }
+// })
 
-const [ , , , , var5] = tecnologias
+const tecnologias2 = tecnologias.map(function (tech) {
+  if (tech === 'Node.js') {
+    return 'Nest.js'
+  } else {
+    return tech
+  }
+})
 
-console.log(var5)
+console.log(tecnologias2)
