@@ -9,9 +9,12 @@ function App() {
 
   function addToCart(item) {
     const itemExist = cart.findIndex((guitar) => guitar.id === item.id)
-    console.log(itemExist)
-
-    setCart((prevCart) => [...prevCart, item])
+    if (itemExist >= 0) {
+      console.log("ya existe")
+    } else {
+      item.quantity = 1
+      setCart([...cart, item])
+    }
   }
 
   return (
