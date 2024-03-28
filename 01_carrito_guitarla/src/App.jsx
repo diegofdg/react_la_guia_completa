@@ -1,7 +1,10 @@
+import { useState } from "react"
+import { db } from "./data/db"
 import Header from "./components/Header"
 import Guitar from "./components/Guitar"
 
 function App() {
+  const [data, setData] = useState(db)
 
   return (
     <>
