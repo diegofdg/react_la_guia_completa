@@ -10,6 +10,10 @@ export type CartItem = Guitar & {
   quantity: number
 }
 
-/* export interface CartItem extends Guitar {
+/* export type CartItem = Pick<Guitar, 'id' | 'name' | 'price'> & {
+  quantity: number
+}
+
+export type CartItem = Omit<Guitar, 'image' | 'description'> & {
   quantity: number
 } */
