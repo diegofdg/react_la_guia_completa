@@ -8,7 +8,7 @@ Este repositorio contiene todos los proyectos incluidos en el curso "React - La 
 <ol>
     <li><a href="https://ddg-guitarla.netlify.app/">Carrito de Compras - GuitarLA</a></li>
     <li><a href="https://ddg-guitarla.netlify.app/">Carrito de Compras - GuitarLA con TypeScript</a></li>
-    <li><a href="https://ddg-criptos-react.netlify.app/">Cotizador de Criptomonedas</a></li>
+    <li><a href="https://ddg-propinas.netlify.app/">Calculadora de Propinas</a></li>
     <li><a>CRM - Clientes</a></li>
     <li><a href="https://guitarla-strapi-vfup.onrender.com/">API GuitarLA con Strapi</a></li>
     <li><a href="https://guitarla-remix-three.vercel.app/">GuitarLA con Remix</a></li>
