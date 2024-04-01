@@ -1,7 +1,7 @@
 import { Activity } from "../types"
 
 export type ActivityActions = {
-  type: 'save-activity', payload: { newActivity : Activity } 
+  type: 'save-activity', payload: { newActivity: Activity }
 }
 
 export type ActivityState = {
@@ -19,8 +19,11 @@ export const activityReducer = (
 ) => {
   if (action.type === "save-activity") {
     // Este código maneja la lógica para actualizar el state
-    console.log("Desde el type save-activity")
-
-
+    console.log(action.payload.newActivity)
+    return {
+      ...state,
+      activities: [...state.activities, action.payload.newActivity]
+    }
   }
+  return state
 }
