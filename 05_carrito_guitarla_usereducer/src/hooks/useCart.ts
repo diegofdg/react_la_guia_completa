@@ -16,16 +16,7 @@ export const useCart = () => {
   }, [cart])
 
   function addToCart(item: Guitar) {
-    const itemExist = cart.findIndex((guitar) => guitar.id === item.id)
-    if (itemExist >= 0) {
-      if (cart[itemExist].quantity >= MAX_ITEMS) return
-      const updatedCart = [...cart]
-      updatedCart[itemExist].quantity++
-      setCart(updatedCart)
-    } else {
-      const newItem: CartItem = { ...item, quantity: 1 }
-      setCart([...cart, newItem])
-    }
+    
   }
 
   function removeFromCart(id: Guitar['id']) {
