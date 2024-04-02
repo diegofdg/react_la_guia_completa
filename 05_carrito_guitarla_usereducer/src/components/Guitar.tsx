@@ -1,6 +1,6 @@
 import { Dispatch } from "react"
 import type { Guitar } from "../types"
-import type { CartActions } from '../reducers/cart-reducer'
+import type { CartActions } from "../reducers/cart-reducer"
 
 type GuitarProps = {
   guitar: Guitar,
@@ -22,7 +22,7 @@ export default function Guitar({ guitar, dispatch }: GuitarProps) {
         <button
           type="button"
           className="btn btn-dark w-100"
-          onClick={() => dispatch({ type: "add-to-cart", payload: { item: guitar} })}
+          onClick={() => dispatch({ type: "add-to-cart", payload: { item: guitar } })}
         >Agregar al Carrito</button>
       </div>
     </div>
