@@ -18,7 +18,7 @@ const localStorageActivities = (): Activity[] => {
 
 export const initialState: ActivityState = {
   activities: localStorageActivities(),
-  activeId: ''
+  activeId: ""
 }
 
 export const activityReducer = (

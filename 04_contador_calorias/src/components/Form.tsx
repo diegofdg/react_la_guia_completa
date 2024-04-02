@@ -41,7 +41,7 @@ export default function Form({ dispatch, state }: FormProps) {
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    dispatch({ type: 'save-activity', payload: { newActivity: activity } })
+    dispatch({ type: "save-activity", payload: { newActivity: activity } })
     setActivity({
       ...initialState,
       id: uuidv4()
@@ -99,7 +99,7 @@ export default function Form({ dispatch, state }: FormProps) {
       <input
         type="submit"
         className="bg-gray-800 hover:bg-gray-900 w-full p-2 font-bold uppercase text-white cursor-pointer disabled:opacity-10"
-        value={activity.category === 1 ? 'Guardar Comida' : 'Guardar Ejercicio'}
+        value={activity.category === 1 ? "Guardar Comida" : "Guardar Ejercicio"}
         disabled={!isValidActivity()}
       />
     </form>
