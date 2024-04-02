@@ -11,7 +11,7 @@ Este repositorio contiene todos los proyectos incluidos en el curso "React - La 
     <li><a href="https://ddg-propinas.netlify.app/">Calculadora de Propinas</a></li>
     <li><a href="https://ddg-calorias.netlify.app/">Contador de Calorías</a></li>
     <li><a href="https://ddg-guitarla.netlify.app/">Carrito de Compras - GuitarLA con useReducer</a></li>
-    <li><a href="https://guitarla-remix-three.vercel.app/">GuitarLA con Remix</a></li>
+    <li><a href="https://ddg-calorias.netlify.app/">Contador de Calorías con useReducer</a></li>
     <li><a href="https://guitarla-next-diegofdg.vercel.app/">GuitarLA con Next.js</a></li>
     <li><a href="https://guitarla-astro-five.vercel.app/">GuitarLA con Astro</a></li>
     <li><a href="https://ddg-cotizador-seguro-react.netlify.app/">Cotizador de Seguro de Autos</a></li>
