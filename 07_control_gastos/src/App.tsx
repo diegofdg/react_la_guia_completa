@@ -1,10 +1,10 @@
-import { useContext } from "react"
 import BudgetForm from "./components/BudgetForm"
-import { BudgetContext } from "./context/BudgetContext"
+import { useBudget } from "./hooks/useBudget"
 
 function App() {
-  const context = useContext(BudgetContext)
-  console.log(context)
+  const { state, dispatch } = useBudget()
+  console.log("state: ",state)
+
   return (
     <>
       <header className="bg-blue-600 py-8 max-h-72">
