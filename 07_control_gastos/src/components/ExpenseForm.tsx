@@ -5,6 +5,7 @@ import DatePicker from "react-date-picker"
 import "react-calendar/dist/Calendar.css"
 import "react-date-picker/dist/DatePicker.css"
 import ErrorMessage from "./ErrorMessage"
+import { useBudget } from "../hooks/useBudget"
 
 export default function ExpenseForm() {
   const [expense, setExpense] = useState<DraftExpense>({
@@ -14,6 +15,7 @@ export default function ExpenseForm() {
     date: new Date()
   })
   const [error, setError] = useState("")
+  const { dispatch } = useBudget()
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -24,7 +26,7 @@ export default function ExpenseForm() {
       return
     }
 
-    console.log("Todo bien...")    
+    dispatch({type: "add-expense", payload: { expense }})
   }
 
   const handleChange = (e: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLSelectElement>) => {
