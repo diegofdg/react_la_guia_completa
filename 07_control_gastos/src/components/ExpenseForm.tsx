@@ -26,7 +26,16 @@ export default function ExpenseForm() {
       return
     }
 
-    dispatch({type: "add-expense", payload: { expense }})
+    // Agregar un nuevo gasto
+    dispatch({ type: "add-expense", payload: { expense } })
+
+    // reiniciar el state
+    setExpense({
+      amount: 0,
+      expenseName: "",
+      category: "",
+      date: new Date()
+    })
   }
 
   const handleChange = (e: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLSelectElement>) => {
