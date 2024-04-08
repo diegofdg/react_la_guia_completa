@@ -4,6 +4,7 @@ import { categories } from "../data/categories"
 import DatePicker from "react-date-picker"
 import "react-calendar/dist/Calendar.css"
 import "react-date-picker/dist/DatePicker.css"
+import ErrorMessage from "./ErrorMessage"
 
 export default function ExpenseForm() {
   const [expense, setExpense] = useState<DraftExpense>({
@@ -12,6 +13,19 @@ export default function ExpenseForm() {
     category: "",
     date: new Date()
   })
+  const [error, setError] = useState("")
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+
+    // validar
+    if (Object.values(expense).includes("")) {
+      setError("Todos los campos son obligatorios")
+      return
+    }
+
+    console.log("Todo bien...")    
+  }
 
   const handleChange = (e: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLSelectElement>) => {
     const { name, value } = e.target
@@ -30,11 +44,12 @@ export default function ExpenseForm() {
   }
 
   return (
-    <form className="space-y-5">
+    <form className="space-y-5" onSubmit={handleSubmit}>
       <legend
         className="uppercase text-center text-2xl font-black border-b-4 border-blue-500 py-2"
       >
         Nuevo Gasto</legend>
+      {error && <ErrorMessage>{error}</ErrorMessage>}
 
       <div className="flex flex-col gap-2">
         <label
