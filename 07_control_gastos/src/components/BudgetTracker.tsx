@@ -26,7 +26,7 @@ export default function BudgetTracker() {
         <button
           type="button"
           className="bg-pink-600 w-full p-2 text-white uppercase font-bold rounded-lg"
-          onClick={() => dispatch({type: 'reset-app'})}
+          onClick={() => dispatch({ type: "reset-app" })}
         >
           Resetear App
         </button>

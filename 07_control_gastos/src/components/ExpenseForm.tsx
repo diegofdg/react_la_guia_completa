@@ -24,6 +24,7 @@ export default function ExpenseForm() {
       setExpense(editingExpense)
       setPreviousAmount(editingExpense.amount)
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [state.editingId])
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {

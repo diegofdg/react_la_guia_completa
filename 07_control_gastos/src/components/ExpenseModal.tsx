@@ -12,14 +12,14 @@ export default function ExpenseModal() {
       <div className="fixed right-5 bottom-5 flex items-center justify-center">
         <button
           type="button"
-          onClick={() => dispatch({type: "show-modal"})}
+          onClick={() => dispatch({ type: "show-modal" })}
         >
           <PlusCircleIcon className="w-16 h-16 text-blue-600 rounded-full" />
         </button>
       </div>
 
       <Transition appear show={state.modal} as={Fragment}>
-        <Dialog as="div" className="relative z-10" onClose={() => dispatch({type: "close-modal"})}>
+        <Dialog as="div" className="relative z-10" onClose={() => dispatch({ type: "close-modal" })}>
           <Transition.Child
             as={Fragment}
             enter="ease-out duration-300"

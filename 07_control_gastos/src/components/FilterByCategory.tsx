@@ -1,6 +1,6 @@
-import { ChangeEvent } from "react";
-import { categories } from "../data/categories";
-import { useBudget } from "../hooks/useBudget";
+import { ChangeEvent } from "react"
+import { categories } from "../data/categories"
+import { useBudget } from "../hooks/useBudget"
 
 export default function FilterByCategory() {
 
@@ -32,7 +32,6 @@ export default function FilterByCategory() {
           </select>
         </div>
       </form>
-
     </div>
   )
 }
