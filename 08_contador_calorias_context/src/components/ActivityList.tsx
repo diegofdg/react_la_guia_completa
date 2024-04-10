@@ -2,8 +2,6 @@ import { PencilSquareIcon, XCircleIcon } from "@heroicons/react/24/outline"
 import { useActivity } from "../hooks/useActivity"
 
 export default function ActivityList() {
-  
-
   const { state, dispatch, isEmptyActivities, categoryName } = useActivity()
 
   return (
