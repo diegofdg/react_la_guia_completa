@@ -12,8 +12,8 @@ Este repositorio contiene todos los proyectos incluidos en el curso "React - La 
     <li><a href="https://ddg-calorias.netlify.app/">Contador de Calorías</a></li>
     <li><a href="https://ddg-guitarla.netlify.app/">Carrito de Compras - GuitarLA con useReducer</a></li>
     <li><a href="https://ddg-calorias.netlify.app/">Contador de Calorías con useReducer</a></li>
-    <li><a href="https://ddg-presupuesto.netlify.app/">Control de Gastos y Presupuesto semanal</a></li>    
-    <li><a href="https://guitarla-astro-five.vercel.app/">GuitarLA con Astro</a></li>
+    <li><a href="https://ddg-presupuesto.netlify.app/">Control de Gastos y Presupuesto semanal</a></li>
+    <li><a href="https://ddg-calorias.netlify.app/">Contador de Calorías con Context API</a></li>
     <li><a href="https://ddg-cotizador-seguro-react.netlify.app/">Cotizador de Seguro de Autos</a></li>
     <li><a href="https://ddg-clima-react.netlify.app/">Buscador de Clima</a></li>
     <li><a href="https://ddg-noticias.netlify.app/">Buscador de Noticias</a></li>
