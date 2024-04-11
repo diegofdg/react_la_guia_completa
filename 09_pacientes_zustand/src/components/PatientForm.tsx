@@ -1,4 +1,7 @@
+import { useForm } from "react-hook-form"
+
 export default function PatientForm() {
+  const { register } = useForm()
 
   return (
     <div className="md:w-1/2 lg:w-2/5 mx-5">
@@ -14,59 +17,77 @@ export default function PatientForm() {
         noValidate
       >
         <div className="mb-5">
-          <label htmlFor="name" className="text-sm uppercase font-bold">
+          <label
+            htmlFor="name"
+            className="text-sm uppercase font-bold"
+          >
             Paciente
           </label>
           <input
             id="name"
-            className="w-full p-3  border border-gray-100"
+            className="w-full p-3 border border-gray-100"
             type="text"
             placeholder="Nombre del Paciente"
+            {...register("name", {
+              required: "El Nombre del paciente es obligatorio"
+          })}
           />
         </div>
 
         <div className="mb-5">
-          <label htmlFor="caretaker" className="text-sm uppercase font-bold">
+          <label
+            htmlFor="caretaker"
+            className="text-sm uppercase font-bold"
+          >
             Propietario
           </label>
           <input
             id="caretaker"
-            className="w-full p-3  border border-gray-100"
+            className="w-full p-3 border border-gray-100"
             type="text"
             placeholder="Nombre del Propietario"
           />
         </div>
 
         <div className="mb-5">
-          <label htmlFor="email" className="text-sm uppercase font-bold">
+          <label
+            htmlFor="email"
+            className="text-sm uppercase font-bold"
+          >
             Email
           </label>
           <input
             id="email"
-            className="w-full p-3  border border-gray-100"
+            className="w-full p-3 border border-gray-100"
             type="email"
             placeholder="Email de Registro"
           />
         </div>
 
         <div className="mb-5">
-          <label htmlFor="date" className="text-sm uppercase font-bold">
+          <label
+            htmlFor="date"
+            className="text-sm uppercase font-bold"
+          >
             Fecha Alta
           </label>
           <input
             id="date"
-            className="w-full p-3  border border-gray-100"
+            className="w-full p-3 border border-gray-100"
             type="date"
           />
         </div>
 
         <div className="mb-5">
-          <label htmlFor="symptoms" className="text-sm uppercase font-bold">
+          <label
+            htmlFor="symptoms"
+            className="text-sm uppercase font-bold"
+          >
             Síntomas
           </label>
           <textarea
             id="symptoms"
-            className="w-full p-3  border border-gray-100"
+            className="w-full p-3 border border-gray-100"
             placeholder="Síntomas del paciente"
           ></textarea>
         </div>
