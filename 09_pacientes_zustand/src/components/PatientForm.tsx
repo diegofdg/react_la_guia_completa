@@ -4,7 +4,6 @@ import Error from "./Error"
 import { usePatientStore } from "../store"
 
 export default function PatientForm() {
-  // const { addPatient } = usePatientStore()
   const addPatient = usePatientStore((state) => state.addPatient)
   
   const { register, handleSubmit, formState: { errors } } = useForm<DraftPatient>()
