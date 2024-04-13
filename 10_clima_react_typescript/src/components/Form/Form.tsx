@@ -3,8 +3,8 @@ import { countries } from "../../data/countries"
 
 export default function Form() {
   return (
-    <form>
-      <div>
+    <form className={styles.form}>
+      <div className={styles.field}>
         <label htmlFor="city">Ciudad:</label>
         <input
           id="city"
@@ -14,7 +14,7 @@ export default function Form() {
         />
       </div>
 
-      <div>
+      <div className={styles.field}>
         <label htmlFor="country">País:</label>
         <select
           id="country"
