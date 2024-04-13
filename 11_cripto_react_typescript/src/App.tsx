@@ -1,6 +1,15 @@
+import { useEffect } from "react"
 import CriptoSearchForm from "./components/CriptoSearchForm"
+import { useCryptoStore } from "./store"
 
 function App() {
+  const fetchCryptos = useCryptoStore((state) => state.fetchCryptos)
+
+  useEffect(() => {
+    fetchCryptos()
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
   return (
     <>
        <div className="container">
