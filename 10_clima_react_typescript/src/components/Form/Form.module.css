@@ -16,6 +16,10 @@
   border-radius: 1rem;
 }
 
+.form select {
+  background-color: #83868a;
+}
+
 .field ::placeholder {
   color: var(--white);
 }
