@@ -7,13 +7,13 @@ import ErrorMessage from "./ErrorMessage"
 export default function CriptoSearchForm() {
   const cryptocurrencies = useCryptoStore((state) => state.cryptocurrencies)
   const fetchData = useCryptoStore((state) => state.fetchData)
-  
+
   const [pair, setPair] = useState<Pair>({
     currency: "",
     criptocurrency: ""
   })
   const [error, setError] = useState("")
-  
+
   const handleChange = (e: ChangeEvent<HTMLSelectElement>) => {
     setPair({
       ...pair,
@@ -23,13 +23,13 @@ export default function CriptoSearchForm() {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if(Object.values(pair).includes("")) {
-        setError("Todos los campos son obligatorios")
-        return
+    if (Object.values(pair).includes("")) {
+      setError("Todos los campos son obligatorios")
+      return
     }
     setError("")
     fetchData(pair)
-}
+  }
 
   return (
     <form

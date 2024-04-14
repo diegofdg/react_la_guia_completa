@@ -8,20 +8,20 @@ function App() {
 
   useEffect(() => {
     fetchCryptos()
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (
     <>
-       <div className="container">
-          <h1 className="app-title">
-              Cotizador de <span>Criptomonedas</span>
-          </h1>
+      <div className="container">
+        <h1 className="app-title">
+          Cotizador de <span>Criptomonedas</span>
+        </h1>
 
-          <div className="content">
-              <CriptoSearchForm />
-              <CryptoPriceDisplay />
-          </div>
+        <div className="content">
+          <CriptoSearchForm />
+          <CryptoPriceDisplay />
+        </div>
       </div>
     </>
   )
