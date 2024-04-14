@@ -10,14 +10,15 @@ type CryptoStore = {
 }
 
 export const useCryptoStore = create<CryptoStore>()(devtools((set) => ({
-  cryptocurrencies: [],  
+  cryptocurrencies: [],
   fetchCryptos: async () => {
-      const cryptocurrencies = await getCryptos()
-      set(() => ({
-          cryptocurrencies
-      }))
+    const cryptocurrencies = await getCryptos()
+    set(() => ({
+      cryptocurrencies
+    }))
   },
   fetchData: async (pair) => {
-      await fetchCurrentCryptoPrice(pair)
+    const result = await fetchCurrentCryptoPrice(pair)
+    console.log(result)
   }
 })))
