@@ -7,10 +7,11 @@ export default function Header() {
   const isHome = useMemo(() => pathname === "/", [pathname])
 
   const fetchCategories = useAppStore((state) => state.fetchCategories)
+  const categories = useAppStore((state) => state.categories)
 
   useEffect(() => {
     fetchCategories()
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (
@@ -70,6 +71,12 @@ export default function Header() {
                 className="p-3 w-full rounded-lg focus:outline-none"
               >
                 <option value="">-- Seleccione --</option>
+                {categories.drinks.map(category => (
+                  <option
+                    value={category.strCategory}
+                    key={category.strCategory}
+                  >{category.strCategory}</option>
+                ))}
 
               </select>
             </div>
