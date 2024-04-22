@@ -1,6 +1,6 @@
 import { Router } from "express"
 import { body, param } from "express-validator"
-import { getProducts, getProductById, createProduct, updateProduct, updateAvailability } from "./handlers/product"
+import { getProducts, getProductById, createProduct, updateProduct, updateAvailability, deleteProduct } from "./handlers/product"
 import { handleInputErrors } from "./middleware"
 
 const router = Router()
@@ -43,8 +43,10 @@ router.patch("/:id",
   updateAvailability
 )
 
-router.delete("/", (req, res) => {
-  res.send("Desde DELETE")
-})
+router.delete("/:id",
+  param("id").isInt().withMessage("ID no válido"),
+  handleInputErrors,
+  deleteProduct
+)
 
 export default router
