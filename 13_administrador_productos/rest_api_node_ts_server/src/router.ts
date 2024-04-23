@@ -5,6 +5,32 @@ import { handleInputErrors } from "./middleware"
 
 const router = Router()
 
+/**
+ * @swagger
+ * components:
+ *  schemas:
+ *    Product:
+ *      type: object
+ *      properties:
+*         id:
+*           type: integer
+*           description: The Product ID
+*           example: 1
+*         name:
+*           type: string
+*           description: The Product Name
+*           example: Monitor Curvo de 32 pulgadas
+*            
+*         price:
+*           type: number
+*           description: The Product Price
+*           example: 300
+*         availability:
+*           type: boolean
+*           description: The Product Availability
+*           example: true
+*/
+
 router.get("/", getProducts)
 router.get("/:id",
   param("id").isInt().withMessage("ID no válido"),
