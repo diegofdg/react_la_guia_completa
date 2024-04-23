@@ -20,7 +20,6 @@ const router = Router()
 *           type: string
 *           description: The Product Name
 *           example: Monitor Curvo de 32 pulgadas
-*            
 *         price:
 *           type: number
 *           description: The Product Price
@@ -84,6 +83,33 @@ router.get("/:id",
   getProductById
 )
 
+/**
+ * @swagger
+  * /api/products:
+ *   post:
+ *     summary: Creates a new product
+ *     tags:
+ *       - Products
+ *     description: Return a new record in the database
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               name:
+ *                 type: string
+ *                 example: Monitor Curvo de 32 pulgadas
+ *               price:
+ *                 type: number
+ *                 example: 300
+ *     responses: 
+ *       201:
+ *         description: Product created successfully
+ *       400:
+ *         description: Bad Request - Invalid input data   
+ */
 router.post("/",
   body("name")
     .notEmpty().withMessage("El nombre del producto no puede ir vacío"),
