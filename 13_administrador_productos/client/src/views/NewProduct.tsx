@@ -1,7 +1,8 @@
-import { Link, Form, useActionData, ActionFunctionArgs } from "react-router-dom"
+import { Link, Form, useActionData, ActionFunctionArgs, redirect } from "react-router-dom"
 import ErrorMessage from "../components/ErrorMessage"
 import { addProduct } from "../services/ProductService"
 
+// eslint-disable-next-line react-refresh/only-export-components
 export async function action({ request }: ActionFunctionArgs) {
   const data = Object.fromEntries(await request.formData())
   let error = ""
@@ -11,8 +12,8 @@ export async function action({ request }: ActionFunctionArgs) {
   if (error.length) {
     return error
   }
-  addProduct(data)
-  return {}
+  await addProduct(data)
+  return redirect("/")
 }
 
 export default function NewProduct() {
