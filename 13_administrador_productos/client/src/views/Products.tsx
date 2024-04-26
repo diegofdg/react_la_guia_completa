@@ -1,4 +1,4 @@
-import { Link, useLoaderData } from "react-router-dom"
+import { ActionFunctionArgs, Link, useLoaderData } from "react-router-dom"
 import { getProducts } from "../services/ProductService"
 import ProductDetails from "../components/ProductDetails"
 import { Product } from "../types"
@@ -10,8 +10,9 @@ export async function loader() {
 }
 
 // eslint-disable-next-line react-refresh/only-export-components
-export async function action() {
-  console.log("desde action de actualizar")
+export async function action({ request }: ActionFunctionArgs) {
+  const data = Object.fromEntries(await request.formData())
+  console.log(data)
   return {}
 }
 
