@@ -9,6 +9,12 @@ export async function loader() {
   return products
 }
 
+// eslint-disable-next-line react-refresh/only-export-components
+export async function action() {
+  console.log("desde action de actualizar")
+  return {}
+}
+
 export default function Products() {
   const data = useLoaderData() as Product[]
 
