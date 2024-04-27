@@ -24,7 +24,7 @@ connectDB()
 // Instancia de express
 const server = express()
 
-// Permitir conexiones
+// Permitir conexiones (esto hace que los test dejen de funcionar)
 const corsOptions: CorsOptions = {
   origin: function (origin, callback) {
     if (origin === process.env.FRONTEND_URL) {
