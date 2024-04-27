@@ -8,6 +8,9 @@ connectDB()
 
 const app = express()
 
+// Leer datos de formularios
+app.use(express.json())
+
 // Routes
 app.use("/api/projects", projectRoutes)
 
