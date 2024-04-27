@@ -18,7 +18,7 @@ Este repositorio contiene todos los proyectos incluidos en el curso "React - La 
     <li><a href="https://ddg-clima-react.netlify.app/">Buscador de Clima</a></li>
     <li><a href="https://ddg-criptos-react.netlify.app/">Cotizador de Criptomonedas</a></li>
     <li><a href="https://ddg-bebidas.netlify.app/">Buscador de Bebidas con React Router Dom</a></li>
-    <li><a href="https://ddg-quioscoapp.up.railway.app/">Quiosco de Comidas y Bebidas</a></li>
+    <li><a href="https://client-administrador-productos.vercel.app/">Administrador de Productos</a></li>
     <li><a>UpTask</a></li>
     <li><a>Crud de Productos con Redux</a></li>
     <li><a>Product Hunt</a></li>
