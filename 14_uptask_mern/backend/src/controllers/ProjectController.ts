@@ -38,14 +38,11 @@ export class ProjectController {
   }
 
   static updateProject = async (req: Request, res: Response) => {
-    const { id } = req.params
     try {
-      const project = await Project.findByIdAndUpdate(id, req.body)
-      if (!project) {
-        const error = new Error("Proyecto no encontrado")
-        return res.status(404).json({ error: error.message })
-      }
-      await project.save()
+      req.project.clientName = req.body.clientName
+      req.project.projectName = req.body.projectName
+      req.project.description = req.body.description
+      await req.project.save()
       res.json("Proyecto actualizado")
     } catch (error) {
       console.log(error)
@@ -53,14 +50,8 @@ export class ProjectController {
   }
 
   static deleteProject = async (req: Request, res: Response) => {
-    const { id } = req.params
     try {
-      const project = await Project.findById(id)
-      if (!project) {
-        const error = new Error("Proyecto no encontrado")
-        return res.status(404).json({ error: error.message })
-      }
-      await project.deleteOne()
+      await req.project.deleteOne()
       res.send("Proyecto Eliminado")
     } catch (error) {
       console.log(error)
