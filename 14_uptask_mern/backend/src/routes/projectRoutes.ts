@@ -56,4 +56,9 @@ router.post("/:projectId/tasks",
   TaskController.createTask
 )
 
+router.get("/:projectId/tasks",
+  projectExists,
+  TaskController.getProjectTasks
+)
+
 export default router
