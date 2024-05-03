@@ -18,7 +18,7 @@ export default function CreateProjectView() {
   const { mutate } = useMutation({
     mutationFn: createProject,
     onError: (error) => {
-      
+      toast.error(error.message)
     },
     onSuccess: (data) => {
       toast.success(data)
@@ -26,7 +26,7 @@ export default function CreateProjectView() {
     }
   })
 
-  const handleForm = (formData : ProjectFormData) => mutate(formData)
+  const handleForm = (formData: ProjectFormData) => mutate(formData)
 
   return (
     <>
