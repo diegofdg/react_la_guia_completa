@@ -27,7 +27,7 @@ export async function getProjects() {
   }
 }
 
-export async function getProjectById(id: Project['_id']) {
+export async function getProjectById(id: Project["_id"]) {
   try {
     const { data } = await api(`/projects/${id}`)
     return data
