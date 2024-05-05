@@ -1,17 +1,25 @@
 import { Link } from "react-router-dom"
 import ProjectForm from "./ProjectForm"
-import { ProjectFormData } from "@/types/index"
+import { Project, ProjectFormData } from "@/types/index"
 import { useForm } from "react-hook-form"
 
-export default function EditProjectForm() {
-  const initialValues: ProjectFormData = {
-    projectName: "",
-    clientName: "",
-    description: ""
-  }
-  const { register, handleSubmit, formState: { errors } } = useForm({ defaultValues: initialValues })
+type EditProjectFormProps = {
+  data: ProjectFormData
+  projectId: Project['_id']
+}
 
-  const handleForm = () => { }
+export default function EditProjectForm({ data }: EditProjectFormProps) {
+  const { register, handleSubmit, formState: { errors } } = useForm({
+    defaultValues: {
+      projectName: data.projectName,
+      clientName: data.clientName,
+      description: data.description
+    }
+  })
+
+  const handleForm = (formData: ProjectFormData) => {
+    console.log(formData)
+  }
 
   return (
     <>
