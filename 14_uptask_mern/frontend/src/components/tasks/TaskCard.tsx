@@ -2,12 +2,14 @@ import { Fragment } from "react"
 import { Task } from "@/types/index"
 import { Menu, Transition } from "@headlessui/react"
 import { EllipsisVerticalIcon } from "@heroicons/react/20/solid"
+import { useNavigate } from "react-router-dom"
 
 type TaskCardProps = {
   task: Task
 }
 
 export default function TaskCard({ task }: TaskCardProps) {
+  const navigate = useNavigate()
   return (
     <li
       className="p-5 bg-white border border-slate-300 flex justify-between gap-3">
@@ -32,18 +34,25 @@ export default function TaskCard({ task }: TaskCardProps) {
             <Menu.Items
               className="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white py-2 shadow-lg ring-1 ring-gray-900/5 focus:outline-none">
               <Menu.Item>
-                <button type='button' className='block px-3 py-1 text-sm leading-6 text-gray-900'>
+                <button
+                  type="button"
+                  className="block px-3 py-1 text-sm leading-6 text-gray-900"
+                >
                   Ver Tarea
                 </button>
               </Menu.Item>
               <Menu.Item>
-                <button type='button' className='block px-3 py-1 text-sm leading-6 text-gray-900'>
+                <button
+                  type="button"
+                  className="block px-3 py-1 text-sm leading-6 text-gray-900"
+                  onClick={() => navigate(location.pathname + `?editTask=${task._id}`)}
+                >
                   Editar Tarea
                 </button>
               </Menu.Item>
 
               <Menu.Item>
-                <button type='button' className='block px-3 py-1 text-sm leading-6 text-red-500'>
+                <button type="button" className="block px-3 py-1 text-sm leading-6 text-red-500">
                   Eliminar Tarea
                 </button>
               </Menu.Item>
