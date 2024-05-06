@@ -1,7 +1,6 @@
 import { Navigate, useNavigate, useParams } from "react-router-dom"
 import { useQuery } from "@tanstack/react-query"
 import { getProjectById } from "@/api/ProjectAPI"
-import EditProjectForm from "@/components/projects/EditProjectForm"
 import AddTaskModal from "@/components/tasks/AddTaskModal"
 
 export default function ProjectDetailsView() {
