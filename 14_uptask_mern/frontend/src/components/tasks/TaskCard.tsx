@@ -23,6 +23,7 @@ export default function TaskCard({ task }: TaskCardProps) {
       toast.error(error.message)
     },
     onSuccess: (data) => {
+      console.log(data)
       toast.success(data)
       queryClient.invalidateQueries({ queryKey: ["project", projectId] })
     }
