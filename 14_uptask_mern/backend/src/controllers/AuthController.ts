@@ -8,12 +8,19 @@ export class AuthController {
     try {
       const { password, email } = req.body
 
+      // Prevenir duplicados
+      const userExists = await User.findOne({ email })
+      if (userExists) {
+        const error = new Error("El Usuario ya esta registrado")
+        return res.status(409).json({ error: error.message })
+      }
+
       // Crea un usuario
       const user = new User(req.body)
 
       // Hash Password
       user.password = await hashPassword(password)
-      
+
       await user.save()
 
       res.send("Cuenta creada, revisa tu email para confirmarla")
