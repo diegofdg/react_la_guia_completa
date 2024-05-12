@@ -28,7 +28,7 @@ export default function RegisterView() {
     }
   })
 
-  const password = watch("password");
+  const password = watch("password")
 
   const handleRegister = (formData: UserRegistrationForm) => mutate(formData)
 

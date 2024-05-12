@@ -16,7 +16,7 @@ export default function NewPasswordForm({ token }: NewPasswordFormProps) {
     password: "",
     password_confirmation: "",
   }
-  const { register, handleSubmit, watch, reset, formState: { errors } } = useForm({ defaultValues: initialValues });
+  const { register, handleSubmit, watch, reset, formState: { errors } } = useForm({ defaultValues: initialValues })
 
   const { mutate } = useMutation({
     mutationFn: updatePasswordWithToken,
@@ -38,7 +38,7 @@ export default function NewPasswordForm({ token }: NewPasswordFormProps) {
     mutate(data)
   }
 
-  const password = watch("password");
+  const password = watch("password")
 
   return (
     <>
