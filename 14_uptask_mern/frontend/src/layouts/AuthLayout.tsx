@@ -1,16 +1,9 @@
 import Logo from "@/components/Logo"
-import { useAuth } from "@/hooks/useAuth"
-import { Navigate, Outlet } from "react-router-dom"
+import { Outlet } from "react-router-dom"
 import { ToastContainer } from "react-toastify"
 
 export default function AuthLayout() {
-  const { data, isError, isLoading } = useAuth()
-    if(isLoading) return "Cargando..."
-    if(isError) {
-        return <Navigate to="/auth/login" />
-    }
-  
-    if(data) return (
+  return (
     <>
       <div className="bg-gray-800 min-h-screen">
         <div className="py-10 lg:py-20 mx-auto w-[450px]">
