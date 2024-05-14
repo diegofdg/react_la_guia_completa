@@ -15,6 +15,14 @@ export class TeamMemberController {
     res.json(user)
   }
 
+  static getProjecTeam = async (req: Request, res: Response) => {
+    const project = await Project.findById(req.project.id).populate({
+      path: "team",
+      select: "id email name"
+    })
+    res.json(project.team)
+  }
+
   static addMemberById = async (req: Request, res: Response) => {
     const { id } = req.body
 
