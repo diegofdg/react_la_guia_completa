@@ -14,4 +14,25 @@ export class TeamMemberController {
     }
     res.json(user)
   }
+
+  static addMemberById = async (req: Request, res: Response) => {
+    const { id } = req.body
+
+    // Find user
+    const user = await User.findById(id).select("id")
+    if (!user) {
+      const error = new Error("Usuario No Encontrado")
+      return res.status(404).json({ error: error.message })
+    }
+
+    if (req.project.team.some(team => team.toString() === user.id.toString())) {
+      const error = new Error("El usuario ya existe en el proyecto")
+      return res.status(409).json({ error: error.message })
+    }
+
+    req.project.team.push(user.id)
+    await req.project.save()
+
+    res.send("Usuario agregado correctamente")
+  }
 }
