@@ -1,3 +1,4 @@
+import AddMemberModal from "@/components/team/AddMemberModal"
 import { Link, useNavigate, useParams } from "react-router-dom"
 
 export default function ProjectTeamView() {
@@ -14,12 +15,13 @@ export default function ProjectTeamView() {
           type="button"
           className="bg-purple-400 hover:bg-purple-500 px-10 py-3 text-white text-xl font-bold cursor-pointer transition-colors"
           onClick={() => navigate(location.pathname + "?addMember=true")}
-        >Agregar Tarea</button>
+        >Agregar Colaborador</button>
         <Link
           to={`/projects/${projectId}`}
           className="bg-fuchsia-600 hover:bg-fuchsia-700 px-10 py-3 text-white text-xl font-bold cursor-pointer transition-colors"
         >Volver a Proyecto</Link>
       </nav>
+      <AddMemberModal />
     </>
   )
 }
