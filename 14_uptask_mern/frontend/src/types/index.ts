@@ -36,6 +36,7 @@ export const taskSchema = z.object({
   description: z.string(),
   project: z.string(),
   status: taskStatusSchema,
+  completedBy: userSchema.or(z.null()),
   createdAt: z.string(),
   updatedAt: z.string()
 })
@@ -49,7 +50,7 @@ export const projectSchema = z.object({
   projectName: z.string(),
   clientName: z.string(),
   description: z.string(),
-  manager: z.string(userSchema.pick({_id: true}))
+  manager: z.string(userSchema.pick({ _id: true }))
 })
 
 export const dashboardProjectSchema = z.array(
