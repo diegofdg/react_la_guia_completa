@@ -4,7 +4,7 @@ import { ProjectController } from "../controllers/ProjectController"
 import { handleInputErrors } from "../middleware/validation"
 import { TaskController } from "../controllers/TaskController"
 import { projectExists } from "../middleware/project"
-import { taskBelongsToProject, taskExists } from "../middleware/task"
+import { hasAuthorization, taskBelongsToProject, taskExists } from "../middleware/task"
 import { authenticate } from "../middleware/auth"
 import { TeamMemberController } from "../controllers/TeamMemberController"
 
@@ -32,11 +32,8 @@ router.get("/:id",
   ProjectController.getProjectById
 )
 
-/** Routes for tasks */
-router.param("projectId", projectExists)
-
-router.put("/:projectId",
-  param("projectId")
+router.put("/:id",
+  param("id")
     .isMongoId().withMessage("ID no válido"),
   body("projectName")
     .notEmpty().withMessage("El Nombre del Proyecto es Obligatorio"),
@@ -48,13 +45,17 @@ router.put("/:projectId",
   ProjectController.updateProject
 )
 
-router.delete("/:projectId",
-  param("projectId").isMongoId().withMessage("ID no válido"),
+router.delete("/:id",
+  param("id").isMongoId().withMessage("ID no válido"),
   handleInputErrors,
   ProjectController.deleteProject
 )
 
+/** Routes for tasks */
+router.param("projectId", projectExists)
+
 router.post("/:projectId/tasks",
+  hasAuthorization,
   body("name")
     .notEmpty().withMessage("El Nombre de la tarea es Obligatorio"),
   body("description")
@@ -77,6 +78,7 @@ router.get("/:projectId/tasks/:taskId",
 )
 
 router.put("/:projectId/tasks/:taskId",
+  hasAuthorization,
   param("taskId").isMongoId().withMessage("ID no válido"),
   body("name")
     .notEmpty().withMessage("El Nombre de la tarea es Obligatorio"),
@@ -87,6 +89,7 @@ router.put("/:projectId/tasks/:taskId",
 )
 
 router.delete("/:projectId/tasks/:taskId",
+  hasAuthorization,
   param("taskId").isMongoId().withMessage("ID no válido"),
   handleInputErrors,
   TaskController.deleteTask
