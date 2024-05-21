@@ -33,7 +33,13 @@ export default function TaskCard({ task, canEdit }: TaskCardProps) {
     }
   })
   const style = transform ? {
-    
+    transform: `translate3d(${transform.x}px, ${transform.y}px, 0)`,
+    padding: "1.25rem",
+    backgroundColor: "#FFF",
+    width: "300px",
+    display: "flex",
+    borderWidth: "1px",
+    borderColor: "rgb(203 213 225 / var(--tw-border-opacity))"
   } : undefined
 
   return (
