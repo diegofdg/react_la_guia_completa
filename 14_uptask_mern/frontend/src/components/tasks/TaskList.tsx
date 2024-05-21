@@ -1,5 +1,5 @@
 import { DndContext, DragEndEvent } from "@dnd-kit/core"
-import { Task, TaskStatus } from "@/types/index"
+import { Project, Task, TaskStatus } from "@/types/index"
 import TaskCard from "./TaskCard"
 import { statusTranslations } from "@/locales/es"
 import DropTask from "./DropTask"
@@ -61,6 +61,23 @@ export default function TaskList({ tasks, canEdit }: TaskListProps) {
       const taskId = active.id.toString()
       const status = over.id as TaskStatus
       mutate({ projectId, taskId, status })
+
+      queryClient.setQueryData(["project", projectId], (prevData: Project) => {
+        const updatedTasks = prevData.tasks.map((task) => {
+          if (task._id === taskId) {
+            return {
+              ...task,
+              status
+            }
+          }
+          return task
+        })
+
+        return {
+          ...prevData,
+          tasks: updatedTasks
+        }
+      })
     }
 
   }
