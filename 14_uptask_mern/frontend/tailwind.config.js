@@ -9,7 +9,7 @@ export default {
   },
   plugins: [
     // eslint-disable-next-line no-undef
-    require('@tailwindcss/forms')
+    require("@tailwindcss/forms")
   ],
 }
 

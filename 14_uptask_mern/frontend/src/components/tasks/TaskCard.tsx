@@ -1,5 +1,5 @@
 import { Fragment } from "react"
-import { Task } from "@/types/index"
+import { TaskProject } from "@/types/index"
 import { Menu, Transition } from "@headlessui/react"
 import { EllipsisVerticalIcon } from "@heroicons/react/20/solid"
 import { useNavigate, useParams } from "react-router-dom"
@@ -9,7 +9,7 @@ import { toast } from "react-toastify"
 import { useDraggable } from "@dnd-kit/core"
 
 type TaskCardProps = {
-  task: Task
+  task: TaskProject
   canEdit: boolean
 }
 
@@ -52,12 +52,10 @@ export default function TaskCard({ task, canEdit }: TaskCardProps) {
         style={style}
         className=" min-w-0 flex flex-col gap-y-4"
       >
-        <button
-          type="button"
+        <p
           className="text-xl font-bold text-slate-600 text-left"
-          onClick={() => mutate({ projectId, taskId: task._id })}
         >{task.name}
-        </button>
+        </p>
         <p className="text-slate-500">{task.description}</p>
       </div>
 

@@ -15,7 +15,7 @@ export async function updateProfile(formData: UserProfileForm) {
 
 export async function changePassword(formData: UpdateCurrentUserPasswordForm) {
   try {
-    const { data } = await api.post<string>('/auth/update-password', formData)
+    const { data } = await api.post<string>("/auth/update-password", formData)
     return data
   } catch (error) {
     if (isAxiosError(error) && error.response) {
