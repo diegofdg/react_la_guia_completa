@@ -8,8 +8,8 @@ export default function AddMemberModal() {
   const location = useLocation()
   const navigate = useNavigate()
 
-  const queryParams = new URLSearchParams(location.search);
-  const addMember = queryParams.get("addMember");
+  const queryParams = new URLSearchParams(location.search)
+  const addMember = queryParams.get("addMember")
   const show = addMember ? true : false
 
   return (

@@ -119,5 +119,5 @@ export default function DeleteProjectModal() {
         </div>
       </Dialog>
     </Transition>
-  );
+  )
 }

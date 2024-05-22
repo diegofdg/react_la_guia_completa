@@ -15,7 +15,7 @@ export default function RegisterView() {
     password_confirmation: "",
   }
 
-  const { register, handleSubmit, watch, reset, formState: { errors } } = useForm<UserRegistrationForm>({ defaultValues: initialValues });
+  const { register, handleSubmit, watch, reset, formState: { errors } } = useForm<UserRegistrationForm>({ defaultValues: initialValues })
 
   const { mutate } = useMutation({
     mutationFn: createAccount,

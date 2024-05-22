@@ -20,7 +20,7 @@ export default function ChangePasswordView() {
     onSuccess: (data) => toast.success(data)
   })
 
-  const password = watch("password");
+  const password = watch("password")
   const handleChangePassword = (formData: UpdateCurrentUserPasswordForm) => mutate(formData)
 
   return (

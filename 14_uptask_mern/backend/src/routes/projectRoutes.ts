@@ -6,7 +6,7 @@ import { TaskController } from "../controllers/TaskController"
 import { projectExists } from "../middleware/project"
 import { hasAuthorization, taskBelongsToProject, taskExists } from "../middleware/task"
 import { authenticate } from "../middleware/auth"
-import { TeamMemberController } from "../controllers/TeamMemberController"
+import { TeamMemberController } from "../controllers/TeamController"
 import { NoteController } from "../controllers/NoteController"
 
 const router = Router()
@@ -24,8 +24,7 @@ router.post("/",
   ProjectController.createProject
 )
 
-router.get("/",
-  ProjectController.getAllProjects)
+router.get("/", ProjectController.getAllProjects)
 
 router.get("/:id",
   param("id").isMongoId().withMessage("ID no válido"),
@@ -33,9 +32,11 @@ router.get("/:id",
   ProjectController.getProjectById
 )
 
-router.put("/:id",
-  param("id")
-    .isMongoId().withMessage("ID no válido"),
+/** Routes for tasks */
+router.param("projectId", projectExists)
+
+router.put("/:projectId",
+  param("projectId").isMongoId().withMessage("ID no válido"),
   body("projectName")
     .notEmpty().withMessage("El Nombre del Proyecto es Obligatorio"),
   body("clientName")
@@ -43,17 +44,17 @@ router.put("/:id",
   body("description")
     .notEmpty().withMessage("La Descripción del Proyecto es Obligatoria"),
   handleInputErrors,
+  hasAuthorization,
   ProjectController.updateProject
 )
 
-router.delete("/:id",
-  param("id").isMongoId().withMessage("ID no válido"),
+router.delete("/:projectId",
+  param("projectId").isMongoId().withMessage("ID no válido"),
   handleInputErrors,
+  hasAuthorization,
   ProjectController.deleteProject
 )
 
-/** Routes for tasks */
-router.param("projectId", projectExists)
 
 router.post("/:projectId/tasks",
   hasAuthorization,
@@ -103,7 +104,6 @@ router.post("/:projectId/tasks/:taskId/status",
   handleInputErrors,
   TaskController.updateStatus
 )
-
 /** Routes for teams */
 router.post("/:projectId/team/find",
   body("email")
