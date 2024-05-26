@@ -8,6 +8,7 @@ export default function Logo() {
           fill
           alt="Logotipo Fresh Coffee"
           src="/logo.svg"
+          priority={true}
         />
       </div>
     </div>
