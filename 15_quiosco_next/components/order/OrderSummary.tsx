@@ -9,9 +9,9 @@ export default function OrderSummary() {
   const order = useStore((state) => state.order)
   const total = useMemo(() => order.reduce((total, item) => total + (item.quantity * item.price), 0), [order])
 
-  const handleCreateOrder = async () => {
-    console.log("Desde handelCreateOrder")
-    createOrder()    
+  const handleCreateOrder = async (formData: FormData) => {
+    console.log(formData.get("name"))
+    createOrder()
   }
 
   return (
