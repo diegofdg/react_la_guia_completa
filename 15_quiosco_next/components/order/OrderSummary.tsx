@@ -26,8 +26,12 @@ export default function OrderSummary() {
       return
     }
 
-
-    createOrder()
+    const response = await createOrder(data)
+    if (response?.errors) {
+      response.errors.forEach((issue) => {
+        toast.error(issue.message)
+      })
+    }
   }
 
   return (
