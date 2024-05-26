@@ -5,6 +5,7 @@ import { formatCurrency } from "@/src/utils"
 import { useMemo } from "react"
 import { createOrder } from "@/actions/create-order-action"
 import { OrderSchema } from "@/src/schema"
+import { toast } from "react-toastify"
 
 export default function OrderSummary() {
   const order = useStore((state) => state.order)
@@ -18,8 +19,12 @@ export default function OrderSummary() {
     }
 
     const result = OrderSchema.safeParse(data)
-    console.log(result)
-    return
+    if (!result.success) {
+      result.error.issues.forEach((issue) => {
+        toast.error(issue.message)
+      })
+      return
+    }
 
 
     createOrder()
