@@ -7,7 +7,9 @@ export default function CreateProductPage() {
     <>
       <Heading>Nuevo Producto</Heading>
 
-      <AddProductForm />    
+      <AddProductForm>
+        <ProductForm />
+      </AddProductForm>    
     </>
   )
 }
