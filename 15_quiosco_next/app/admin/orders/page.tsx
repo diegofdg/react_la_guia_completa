@@ -2,7 +2,7 @@
 import useSWR from "swr"
 import OrderCard from "@/components/order/OrderCard"
 import Heading from "@/components/ui/Heading"
-import { OrderWithProducts } from "@/types"
+import { OrderWithProducts } from "@/src/types"
 
 export default function OrdersPage() {
   const url = "/admin/orders/api"

@@ -1,6 +1,6 @@
 import { completeOrder } from "@/actions/complete-order-action"
 import { formatCurrency } from "@/src/utils"
-import { OrderWithProducts } from "@/types"
+import { OrderWithProducts } from "@/src/types"
 
 type OrderCardProps = {
   order: OrderWithProducts
